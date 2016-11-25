@@ -18,10 +18,15 @@ namespace OmniMerit.Controllers
         }
         public ActionResult Career()
         {
+            if (TempData["Message"]!=null)
+            {
+                ViewBag.Message = "Done Successfully";
+            }
             return View();
         }
         public ActionResult Career1()
         {
+            ViewBag.Message =null;
             return View();
         }
 
@@ -43,7 +48,8 @@ namespace OmniMerit.Controllers
                      path = Path.Combine(Server.MapPath("~/Scripts/Images/resume"),
                                                Path.GetFileName(file.FileName));
                     file.SaveAs(path);
-                    ViewBag.Message = "File uploaded successfully";
+                   
+                    TempData["Message"]= "File uploaded successfully";
                 }
                 catch (Exception ex)
                 {
@@ -56,24 +62,9 @@ namespace OmniMerit.Controllers
            
 
 
-            MailMessage mail = new MailMessage();
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-            mail.From = new MailAddress("wasi786rehman@gmail.com");
-            mail.To.Add("wasi_rehman@live.com");
-            mail.Subject = "Resume: "+name+"-Email: "+email;
-            mail.Body = "mail with attachment";
+           
 
-            if (path != "")
-            {
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(path);
-                mail.Attachments.Add(attachment);
-            }
-            SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("wasi786rehman@gmail.com", "wasi_rehman@184");
-            SmtpServer.EnableSsl = true;
-
-            SmtpServer.Send(mail);
+           
             return RedirectToAction("Career");
         }
     }

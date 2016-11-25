@@ -1580,3 +1580,10 @@ ul li {
 margin:2%;
 
 }
+@media screen and (max-width: 990px) {
+    .why-image {
+        height: 184px !important;
+    margin-top: 30px !important;
+    margin-left: 0 !important;
+    }
+}
