@@ -34,6 +34,17 @@ namespace OmniMerit.Controllers
             ViewBag.Message = null;
             return View();
         }
+        public ActionResult Engineering()
+        {
+            
+            return View();
+        }
+        public ActionResult Medical()
+        {
+
+            return View();
+        }
+
 
         [HttpPost]
         public ActionResult ResumeUpload(FormCollection fc, HttpPostedFileBase file)

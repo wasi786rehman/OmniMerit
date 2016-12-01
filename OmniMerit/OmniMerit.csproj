@@ -241,11 +241,12 @@
     <Content Include="Scripts\sass\_bootstrap-mincer.scss" />
     <Content Include="Scripts\sass\_bootstrap-sprockets.scss" />
     <Content Include="Views\Default\Career.cshtml" />
-    <Content Include="Views\Default\Career1.cshtml" />
     <Content Include="Views\Default\Foundation.cshtml" />
     <Content Include="StudyMaterial\12_phy_ch1.pdf" />
     <Content Include="StudyMaterial\12_phy_ch2.pdf" />
     <Content Include="StudyMaterial\12_phy_ch3.pdf" />
+    <Content Include="Views\Default\Engineering.cshtml" />
+    <Content Include="Views\Default\Medical.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
