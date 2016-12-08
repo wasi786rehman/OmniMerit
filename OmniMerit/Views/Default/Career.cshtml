@@ -85,11 +85,7 @@
                     </ul>
                 </div>
                 <div class="col-md-8 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                    @using (Html.BeginForm("ResumeUpload",
-                    "Default",
-                    FormMethod.Post,
-                    new { enctype = "multipart/form-data" }))
-                {
+                    
 
                 <div class="row">
                     <div class="text-center">
@@ -102,58 +98,102 @@
                     <div class="col-md-6">
                         <div class="form-group">
 
-                            <input type="text" class="form-control" placeholder="Name" name="name" required>
+                            <input type="text" id="name" class="form-control" placeholder="Name" name="name" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input class="form-control" placeholder="Email" type="email" name="email" required>
+                            <input class="form-control" id="email" placeholder="Email" type="email" name="email" required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input class="form-control" type="file" placeholder="Resume" id="choose-file" name="file" />
+                            <input class="form-control" type="file" accept=".pdf,.doc,.docx" placeholder="Resume" id="choose-file" name="file" />
                         </div>
                     </div>
 
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <a href="#success" data-toggle="modal">
-                                <input value="Submit" class="btn btn-primary" type="submit">
-                            </a>
+                            
+                                <input value="Submit" class="btn btn-primary" type="button" onclick="upload()">
+                            
                         </div>
                     </div>
                 </div>
 
-                }
+                
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header modal-header-success">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h1><i class="glyphicon glyphicon-thumbs-up"></i> Success Modal</h1>
-                </div>
-                <div class="modal-body">
-                    Thank you For Showing your Interest. We Will Get Back to you.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    <!-- /.modal -->
     <!-- Modal -->
 
 
 
     </div>
 
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-success">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1><i class="glyphicon glyphicon-thumbs-up"></i> Success Modal</h1>
+            </div>
+            <div class="modal-body">
+                Thank you For Showing your Interest. We Will Get Back to you.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="failure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-success">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1><i class="glyphicon glyphicon-thumbs-up"></i> Ooops</h1>
+            </div>
+            <div class="modal-body">
+                Sorry Somethings get Wrong. Please Fill the Detail and Try Again. 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
 
+<script>
+    function upload() {
+        var name = document.getElementById('name').value;
+        var email= document.getElementById('email').value;
+        var file=document.getElementById('choose-file').files[0];
+        var re = /^(([^<>()[\]\\.,;:\s\"]+(\.[^<>()[\]\\.,;:\s\"]+)*)|(\".+\"))((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      
+        if (name == null || re.test(email)==false|| file == null)
+            $('#failure').modal('show');
+        else {
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            fd.append("file", file);
+            fd.append("name", name);
+            fd.append("email", email);
+            xhr.open("POST", "/Default/ResumeUpload", true);
+            xhr.send(fd);
+            xhr.addEventListener("load", function (event) {
+                alert(event.srcElement.responseText);
+                if (event.returnValue == true)
+                    $('#success').modal('show');
+            }, false);
+        }
+
+       
+    }
+</script>

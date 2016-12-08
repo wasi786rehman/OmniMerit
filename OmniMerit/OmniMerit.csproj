@@ -127,6 +127,7 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\omnimerit.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\OmniMerit.pubxml" />
     <Content Include="Scripts\Css\.DS_Store" />
@@ -145,7 +146,6 @@
     <Content Include="Scripts\fonts\icomoon\icomoon.eot" />
     <Content Include="Scripts\fonts\icomoon\icomoon.ttf" />
     <Content Include="Scripts\fonts\icomoon\icomoon.woff" />
-    <Content Include="Scripts\images\resume\abc.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Css\animate.css" />
     <Content Include="Scripts\Css\bootstrap.css" />
@@ -257,6 +257,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\images\resume\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

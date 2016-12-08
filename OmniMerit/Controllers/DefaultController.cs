@@ -18,10 +18,7 @@ namespace OmniMerit.Controllers
         }
         public ActionResult Career()
         {
-            if (TempData["Message"]!=null)
-            {
-                ViewBag.Message = "Done Successfully";
-            }
+           
             return View();
         }
         public ActionResult Career1()
@@ -47,7 +44,7 @@ namespace OmniMerit.Controllers
 
 
         [HttpPost]
-        public ActionResult ResumeUpload(FormCollection fc, HttpPostedFileBase file)
+        public bool ResumeUpload(FormCollection fc, HttpPostedFileBase file)
         {
             string name=string.Empty;
             string email=string.Empty;
@@ -70,18 +67,45 @@ namespace OmniMerit.Controllers
                 catch (Exception ex)
                 {
                     ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    return false;
                 }
             else
             {
                 ViewBag.Message = "You have not specified a file.";
             }
-           
 
 
-           
 
-           
-            return RedirectToAction("Career");
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("wasi786rehman@gmail.com");
+                mail.To.Add("talha.a90@gmail.com");
+                mail.Subject = "Resume: " + name + "-Email: " + email;
+                mail.Body = "mail with attachment";
+
+                if (path != "")
+                {
+                    System.Net.Mail.Attachment attachment;
+                    attachment = new System.Net.Mail.Attachment(path);
+                    mail.Attachments.Add(attachment);
+                }
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("wasi786rehman@gmail.com", "wasi.rehman9027413884");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+
+
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+
+
+            return true;
         }
     }
 }
