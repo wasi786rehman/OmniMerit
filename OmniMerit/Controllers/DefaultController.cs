@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Net;
 using System.Net.Mail;
 using System.IO;
+using OmniMerit.Models;
 
 namespace OmniMerit.Controllers
 {
@@ -26,10 +27,19 @@ namespace OmniMerit.Controllers
             ViewBag.Message =null;
             return View();
         }
-        public ActionResult Foundation()
-        {
-            ViewBag.Message = null;
-            return View();
+        public ActionResult Foundation(int? page)
+        { Pager v;
+            if (page.HasValue)
+            {
+               v = new Pager { CurrentPage = page.Value, StartPage = 0, EndPage = 10, TotalItems = 10, };
+               
+            }
+            else
+            {
+                 v = new Pager { };
+            }
+
+            return View(v);
         }
         public ActionResult Engineering()
         {
@@ -40,6 +50,14 @@ namespace OmniMerit.Controllers
         {
 
             return View();
+        }
+        public ActionResult XIIChemistry()
+        {
+            var v = new Pager { CurrentPage = 0, StartPage = 0, EndPage = 10, TotalItems = 10, };
+
+
+
+            return View(v);
         }
 
 

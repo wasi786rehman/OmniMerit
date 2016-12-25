@@ -127,7 +127,6 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
-    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\omnimerit.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\OmniMerit.pubxml" />
     <Content Include="Scripts\Css\.DS_Store" />
@@ -159,14 +158,9 @@
     <Content Include="Scripts\images\7.svg" />
     <Content Include="Scripts\images\8.svg" />
     <Content Include="Scripts\images\9.svg" />
-    <Content Include="Scripts\images\Carousel\1.jpg" />
-    <Content Include="Scripts\images\Carousel\2.jpg" />
-    <Content Include="Scripts\images\Carousel\3.jpg" />
-    <Content Include="Scripts\images\Carousel\4.jpg" />
-    <Content Include="Scripts\images\imageedit_1_9190194569.png" />
-    <Content Include="Scripts\images\imageedit_2_2979887519.png" />
-    <Content Include="Scripts\images\imageedit_2_7875229485.jpg" />
-    <Content Include="Scripts\images\imageedit_4_8815912958.png" />
+    <Content Include="Scripts\images\atom.svg" />
+    <Content Include="Scripts\images\benzene.svg" />
+    <Content Include="Scripts\images\dna.svg" />
     <Content Include="Scripts\images\image_1.jpg" />
     <Content Include="Scripts\images\image_2.jpg" />
     <Content Include="Scripts\images\image_3.jpg" />
@@ -176,8 +170,6 @@
     <Content Include="Scripts\images\loc.png" />
     <Content Include="Scripts\images\log.png" />
     <Content Include="Scripts\images\logo final.png" />
-    <Content Include="Scripts\images\oie_transparent %283%29.png" />
-    <Content Include="Scripts\images\omnimerit 3 - Copy.png" />
     <Content Include="Scripts\images\person2.jpg" />
     <Content Include="Scripts\images\person3.jpg" />
     <Content Include="Scripts\images\person4.jpg" />
@@ -189,7 +181,6 @@
     <Content Include="Scripts\images\teampic\Najamu Saqib.JPG" />
     <Content Include="Scripts\images\teampic\Talha Ahmad.jpg" />
     <Content Include="Scripts\images\teampic\Vidhu Trivedi.jpg" />
-    <Content Include="Scripts\images\Untitled.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
@@ -211,6 +202,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\sass\index.html" />
     <Content Include="Scripts\Teamcss\style.css" />
+    <Content Include="StudyMaterial\12_phy_5.1.GIF" />
+    <Content Include="StudyMaterial\12_phy_5.2.GIF" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -218,9 +211,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +242,9 @@
     <Content Include="StudyMaterial\12_phy_ch3.pdf" />
     <Content Include="Views\Default\Engineering.cshtml" />
     <Content Include="Views\Default\Medical.cshtml" />
+    <Content Include="Views\Default\XII_Physics.cshtml" />
+    <Content Include="Views\Default\XIIChemistry.cshtml" />
+    <Content Include="Scripts\Json\classXII.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -256,8 +254,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Scripts\images\resume\" />
+    <Folder Include="Views\Subject\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

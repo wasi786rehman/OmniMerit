@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OmniMerit.Models.Pager>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalItems)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartPage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndPage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalItems)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentPage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartPage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndPage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

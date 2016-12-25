@@ -1,9 +1,11 @@
-﻿
+﻿@model OmniMerit.Models.Pager
+
 @{
     ViewBag.Title = "Foundation";
 }
+
 <div id="fh5co-page">
-    <header id="fh5co-header" style="background: #333333;"  role="banner">
+    <header id="fh5co-header" style="background: #333333;" role="banner">
 
         <div class="header-inner">
             <a href="/../">
@@ -20,7 +22,18 @@
 
 
                     <li><a href="#" class="home active">Home</a></li>
-
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Courses
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu drpmenu">
+                            <li><a href="#">Class X</a></li>
+                            <li><a href="#">Class XII</a></li>
+                            <li><a href="#">IIT</a></li>
+                            <li><a href="#">AIPMT</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#" class="scrollabout">About us</a></li>
                     <li><a href="" class="scrollBottom">Courses</a></li>
                     <li><a href="" class="scrollBottom">Contact Us </a></li>
@@ -32,75 +45,77 @@
         </div>
 
     </header>
-    <div style="padding-top:100px;" class="text-center" >
-        
+    <div style="padding-top:100px;" class="text-center">
+
         <h2>Foundation</h2>
 
-        Ncert solutions for class 12 physics
-        
+
+
 
     </div>
 
     <div id="fh5co-why-us" class="animate-box whymargin">
         <div class="container">
             <div class="row">
-                <div class="col-md-4  item-block">
-                    <img src="../../Scripts/images/30.svg" alt="img" class="img-responsive why-image" style="height:184px;margin-left: 16%;">
-                    <img src="../../Scripts/images/18.svg" alt="img" class="img-responsive why-image" style="height:184px;margin-left: 21%;">
-                    
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-3">
+                    <a href="#" onclick="listsubject('physics')">
+                        <img src="../../Scripts/images/atom.svg" alt="img" class="img-responsive sideicon ">
+                        Physics
+                    </a>
+                    <div class="clearfix"></div>
+                    <a href="#" onclick="listsubject('chemistry')">
+                        <img src="../../Scripts/images/benzene.svg" alt="img" class="img-responsive sideicon">
+                        Chemistry
 
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                <h4 class="panel-title">
-                                    <a >
-                                        Electric Charges And Field
-                                    </a>
-                                </h4>
-                            </div>
-                            
-                            <div id="collapse1" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <object id="obj" type="application/pdf" data="~/StudyMaterial/12_phy_ch2.pdf#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true;" style="width:500px; height:1000px;"><embed src="~/StudyMaterial/12_phy_ch2.pdf#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true;" type="application/pdf" /></object>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                <h4 class="panel-title">
-                                    <a >
-                                        Electrostatic Potential And Capacitance 
-                                    </a>
-                                </h4>
-                            </div>
-                            
-                            <div id="collapse2" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <object id="obj" type="application/pdf" style="width:500px; height:1000px;"><embed src="~/StudyMaterial/12_phy_ch2.pdf#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true;" type="application/pdf" /></object>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                <h4 class="panel-title">
-                                    <a >
-                                        Current Electricity
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse3" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <object id="obj" type="application/pdf" data="http://docs.google.com/gview?embedded=true&url=<url of a supported doc>~/StudyMaterial/12_phy_ch2.pdf#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true;" style="width:500px; height:1000px;"><embed src="~/StudyMaterial/12_phy_ch2.pdf#toolbar=0&navpanes=0&statusbar=0&view=Fit;readonly=true;" type="application/pdf" /></object>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
+                    <div class="clearfix"></div>
+                    <a href="#" onclick="listsubject('biology')">
+                        <img src="~/Scripts/images/dna.svg" alt="img" class="img-responsive sideicon " />
+                        Biology
+                    </a>
+                    <div class="clearfix"></div>
                 </div>
+
+                <div class="col-md-9">
+
+                   
+                        <div id="Subjects"></div>
+
+                        
+    
+                    </div>
+
+                   
+                
             </div>
+
 
         </div>
     </div>
-        
+
+
+
 </div>
+<script>
+            function listsubject(sub)
+        {
+            $.post("/Subject/GetData/", {}, function (data) {
+
+                $("#Subjects").html('');
+                var count=data[sub].length;
+                for(var i=0;i<count;i++)
+                {
+                                    
+                    var openingdiv="<div class='panel panel-default'><div class='panel-heading' data-toggle='collapse' data-parent='#accordion' href='#collapse2'><h4 class='panel-title'><a onclick='datachange(this)'>";
+                    var closingdiv = "</a></h4></div>";
+                    $("#Subjects").append(openingdiv + data[sub][i].Chapter + closingdiv);
+                
+                                                    
+                                                
+
+                }
+            
+            });
+
+        }
+</script>
