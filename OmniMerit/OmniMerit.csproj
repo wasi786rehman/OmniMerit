@@ -46,6 +46,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -61,6 +69,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,6 +127,16 @@
     <Content Include="fonts\icomoon\icomoon.svg" />
     <Content Include="fonts\icomoon\index.html" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DataBase\OmniMeritModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
+      <LastGenOutput>OmniMeritModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBase\OmniMeritModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
+      <LastGenOutput>OmniMeritModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\icomoon\.DS_Store" />
@@ -127,6 +147,13 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Models\DataBase\OmniMeritModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OmniMeritModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataBase\OmniMeritModel.edmx.diagram">
+      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\omnimerit.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\OmniMerit.pubxml" />
     <Content Include="Scripts\Css\.DS_Store" />
@@ -161,6 +188,8 @@
     <Content Include="Scripts\images\atom.svg" />
     <Content Include="Scripts\images\benzene.svg" />
     <Content Include="Scripts\images\dna.svg" />
+    <Content Include="Scripts\images\fb.png" />
+    <Content Include="Scripts\images\imageedit_1_3947092529.png" />
     <Content Include="Scripts\images\image_1.jpg" />
     <Content Include="Scripts\images\image_2.jpg" />
     <Content Include="Scripts\images\image_3.jpg" />
@@ -170,6 +199,7 @@
     <Content Include="Scripts\images\loc.png" />
     <Content Include="Scripts\images\log.png" />
     <Content Include="Scripts\images\logo final.png" />
+    <Content Include="Scripts\images\new_logo.png" />
     <Content Include="Scripts\images\person2.jpg" />
     <Content Include="Scripts\images\person3.jpg" />
     <Content Include="Scripts\images\person4.jpg" />
@@ -211,11 +241,37 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Pager.cs" />
+    <Compile Include="Models\CustomModel\Login.cs" />
+    <Compile Include="Models\DataBase\login.cs">
+      <DependentUpon>OmniMeritModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\OmniMeritModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmniMeritModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\OmniMeritModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmniMeritModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\OmniMeritModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Result.cs">
+      <DependentUpon>OmniMeritModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\StudentInfo.cs">
+      <DependentUpon>OmniMeritModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -242,9 +298,9 @@
     <Content Include="StudyMaterial\12_phy_ch3.pdf" />
     <Content Include="Views\Default\Engineering.cshtml" />
     <Content Include="Views\Default\Medical.cshtml" />
-    <Content Include="Views\Default\XII_Physics.cshtml" />
-    <Content Include="Views\Default\XIIChemistry.cshtml" />
     <Content Include="Scripts\Json\classXII.json" />
+    <Content Include="Views\Default\Profile.cshtml" />
+    <Content Include="Views\SignUp\SignUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -256,6 +312,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\images\resume\" />
     <Folder Include="Views\Subject\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

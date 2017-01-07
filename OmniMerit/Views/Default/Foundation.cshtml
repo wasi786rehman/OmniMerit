@@ -9,7 +9,7 @@
 
         <div class="header-inner">
             <a href="/../">
-                <img src="~/Scripts/images/logo final.png" class="logo" style="float:left; margin-right:1%; height:97px" />
+                <img src="~/Scripts/images/new_logo.png" class="logo" style="float:left; margin-right:1%; height:80px" />
             </a>
             <h1><a href="/../">OmniMerit<span></span></a></h1>
             <p style="float:left; margin-top: 50px;color: greenyellow;margin-left: -156px;">Integrating Noble values </p>
@@ -39,6 +39,7 @@
                     <li><a href="" class="scrollBottom">Contact Us </a></li>
 
                     <li><a href="/Default/Career">Career</a></li>
+                    <li><a data-toggle="modal" data-target="#myModal"> Login</a></li>
 
                 </ul>
             </nav>
@@ -78,15 +79,15 @@
 
                 <div class="col-md-9">
 
-                   
-                        <div id="Subjects"></div>
 
-                        
-    
-                    </div>
+                    <div id="Subjects"></div>
 
-                   
-                
+
+
+                </div>
+
+
+
             </div>
 
 
@@ -97,25 +98,72 @@
 
 </div>
 <script>
-            function listsubject(sub)
-        {
-            $.post("/Subject/GetData/", {}, function (data) {
+    function listsubject(sub) {
+        $.post("/Subject/GetData/", {}, function (data) {
 
-                $("#Subjects").html('');
-                var count=data[sub].length;
-                for(var i=0;i<count;i++)
-                {
-                                    
-                    var openingdiv="<div class='panel panel-default'><div class='panel-heading' data-toggle='collapse' data-parent='#accordion' href='#collapse2'><h4 class='panel-title'><a onclick='datachange(this)'>";
-                    var closingdiv = "</a></h4></div>";
-                    $("#Subjects").append(openingdiv + data[sub][i].Chapter + closingdiv);
-                
-                                                    
-                                                
+            $("#Subjects").html('');
+            var count = data[sub].length;
+            for (var i = 0; i < count; i++) {
 
-                }
-            
-            });
+                var openingdiv = "<div class='panel panel-default'><div class='panel-heading' data-toggle='collapse' data-parent='#accordion' href='#collapse2'><h4 class='panel-title'><a onclick='datachange(this)'>";
+                var closingdiv = "</a></h4></div>";
+                $("#Subjects").append(openingdiv + data[sub][i].Chapter + closingdiv);
 
-        }
+
+
+
+            }
+
+        });
+
+    }
 </script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header" style="background-color:#333333;">
+            <a href="/../">
+                <img src="~/Scripts/images/new_logo.png"  style="float:left; margin-right:1%; height:80px" />
+            </a>
+           <div> <h3 style="margin-bottom:0 !important ;  font-size:xx-large; color:white;"> OmniMerit</h3></div>
+            <span style="color: greenyellow;">Integrating Noble values </span>
+
+        </div>
+            <div class="modal-body">
+                <div>
+
+                       
+
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <fb:login-button size="xlarge" scope="public_profile,email" onlogin="checkLoginState();">
+                                            Login with facebook
+                                        </fb:login-button>
+                                    </div>
+                                    <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
+                                        <form class="form-horizontal">
+                                            
+                                                <input id="textinput" name="textinput" type="text" placeholder="Enter User Name" class="form-control input-md">
+                                                <div class="spacing"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"><small> Remember me</small></div>
+                                                <input id="textinput" name="textinput" type="text" placeholder="Enter Password" class="form-control input-md">
+                                                <div class="spacing"><a href="#"><small> Forgot Password?</small></a><br /></div>
+                                                <button id="singlebutton" name="singlebutton" class="btn btn-primary pull-right">Sign In</button>
+
+                                           
+                                            <br /><br /><br />
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+</div> 

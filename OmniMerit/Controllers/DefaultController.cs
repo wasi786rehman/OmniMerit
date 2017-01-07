@@ -15,6 +15,7 @@ namespace OmniMerit.Controllers
         // GET: Default
         public ActionResult Index()
         {
+          
             return View();
         }
         public ActionResult Career()
@@ -28,24 +29,21 @@ namespace OmniMerit.Controllers
             return View();
         }
         public ActionResult Foundation(int? page)
-        { Pager v;
-            if (page.HasValue)
-            {
-               v = new Pager { CurrentPage = page.Value, StartPage = 0, EndPage = 10, TotalItems = 10, };
-               
-            }
-            else
-            {
-                 v = new Pager { };
-            }
-
-            return View(v);
+        { 
+            return View();
         }
         public ActionResult Engineering()
         {
             
             return View();
         }
+        public ActionResult Profile()
+        {
+
+            return View();
+        }
+
+
         public ActionResult Medical()
         {
 
@@ -53,13 +51,15 @@ namespace OmniMerit.Controllers
         }
         public ActionResult XIIChemistry()
         {
-            var v = new Pager { CurrentPage = 0, StartPage = 0, EndPage = 10, TotalItems = 10, };
+           
 
-
-
-            return View(v);
+            return View();
         }
 
+        private void Login()
+        {
+           
+        }
 
         [HttpPost]
         public bool ResumeUpload(FormCollection fc, HttpPostedFileBase file)
