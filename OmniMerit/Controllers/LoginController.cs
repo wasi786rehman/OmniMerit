@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 
 using OmniMerit.Models.CustomModel;
-using OmniMerit.Models.DataBase;
+
 
 namespace OmniMerit.Controllers
 {
@@ -19,28 +19,16 @@ namespace OmniMerit.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Login login)
         {
-            
+            OmniMerit.Models.CustomModel.Login loginmodel = new Models.CustomModel.Login();
+
             var errors = ModelState.Values.SelectMany(v => v.Errors);
 
             if (ModelState.IsValid)
             {
-                using (OmnimeritEntities modelentity = new OmnimeritEntities())
-                {
-                    var v = modelentity.logins.Where(model => model.Name.Equals(login.ID) && model.Password.Equals(login.Password)).FirstOrDefault();
-                    if (v != null)
-                    {
-                        
-                        Session["LoggedUsername"] = v.Name.ToString();
-                        return RedirectToAction("../Default/Profile");
-
-                    }
-                    else
-                    {
-                        ViewBag.Message = "Username or Password not correct!";
-
-                        return RedirectToAction("../Default/Index");
-                    }
-                }
+               if(loginmodel.LoginModel(login))
+                return RedirectToAction("../default/profile");
+               else
+                return RedirectToAction("../Default/Index");
             }
 
             ViewBag.Message = "Invalid Login Details";

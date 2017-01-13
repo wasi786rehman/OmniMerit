@@ -197,7 +197,6 @@
     <Content Include="Scripts\images\index.html" />
     <Content Include="Scripts\images\loader.gif" />
     <Content Include="Scripts\images\loc.png" />
-    <Content Include="Scripts\images\log.png" />
     <Content Include="Scripts\images\logo final.png" />
     <Content Include="Scripts\images\new_logo.png" />
     <Content Include="Scripts\images\person2.jpg" />
@@ -242,12 +241,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\SignUpInfoController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomModel\Login.cs" />
+    <Compile Include="Models\CustomModel\SignUpModel.cs" />
     <Compile Include="Models\DataBase\login.cs">
       <DependentUpon>OmniMeritModel.tt</DependentUpon>
     </Compile>
@@ -300,7 +300,7 @@
     <Content Include="Views\Default\Medical.cshtml" />
     <Content Include="Scripts\Json\classXII.json" />
     <Content Include="Views\Default\Profile.cshtml" />
-    <Content Include="Views\SignUp\SignUp.cshtml" />
+    <Content Include="Views\SignUpInfo\SignUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

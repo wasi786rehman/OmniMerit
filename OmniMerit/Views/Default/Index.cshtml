@@ -32,7 +32,7 @@
                                 <li><a href="" class="scrollBottom">Contact Us </a></li>
                                
                                 <li><a href="/Default/Career">Career</a></li>
-                                <li><a data-toggle="modal" data-target="#myModal"> Login</a></li>
+                                @*<li><a data-toggle="modal" data-target="#myModal"> Login</a></li>*@
                             </ul>
                         </nav>
 </div>
@@ -164,7 +164,7 @@
                             </div> <!-- cd-member-info -->
                         </a>
                     </li>
-                    <li>
+                  <!--  <li>
                         <a href="#0" data-type="member-5">
                             <figure>
                                 <img src="~/Scripts/images/teampic/Vidhu Trivedi.jpg" class="img-circle" alt="Vidhu Trivedi">
@@ -173,9 +173,9 @@
                             <div class="cd-member-info">
                                 Vidhu Trivedi
                                 <span> Alumni IIT Dhanbad</span>
-                            </div> <!-- cd-member-info -->
+                            </div> 
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div> <!-- cd-container -->
         </section> <!-- cd-team -->
@@ -240,7 +240,7 @@
                 <span style="color: greenyellow;">Integrating Noble values </span>
 
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="height:250px;">
                 <div>
 
 
@@ -248,9 +248,11 @@
                     <div class="row">
 
                         <div class="col-md-5">
-                            <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
+                           
+                            <fb:login-button size="large" data-size="Xlarge" da scope="public_profile,email" onlogin="checkLoginState();">
                                 Login with facebook
-                            </fb:login-button>
+                            </fb:login-button><br />
+                          
                         </div>
                         <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
                            @using (Html.BeginForm("Login", "Login", FormMethod.Post,
@@ -269,7 +271,7 @@
                                
                                 <div class="spacing"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"><small> Remember me</small></div>
                                 <div class="spacing"><a href="#"><small> Forgot Password?</small></a><br /></div>
-                                <button id="singlebutton"  type="submit" name="singlebutton" class="btn btn-primary pull-right">Sign In</button>
+                                <button id="singlebutton"  type="submit" name="singlebutton" class="btn btn-primary pull-right">Log In</button>
                                 <div id="status"></div>
 
                                 <br /><br /><br />
@@ -284,64 +286,5 @@
         </div>
     </div>
 </div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1546266568723406',
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-
-// This is called with the results from from FB.getLoginStatus().
-
-  function statusChangeCallback(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
-      // The response object is returned with a status field that lets the
-      // app know the current login status of the person.
-      // Full docs on the response object can be found in the documentation
-      // for FB.getLoginStatus().
-      if (response.status === 'connected') {
-          // Logged into your app and Facebook.
-          testAPI();
-
-          window.open("/Default/Profile","_self");
-      } else if (response.status === 'not_authorized') {
-          // The person is logged into Facebook, but not your app.
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
-      } else {
-          // The person is not logged into Facebook, so we're not sure if
-          // they are logged into this app or not.
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
-      }
-  }
-  function checkLoginState() {
-      debugger;
-      FB.getLoginStatus(function (response) {
-          statusChangeCallback(response);
-      });
-  }
-
-  function testAPI() {
-      debugger;
-      console.log('Welcome!  Fetching your information.... ');
-      FB.api('/me', function (response) {
-          console.log('Successful login for: ' + response.name);
-          document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
-      });
-  }
-</script>
 
