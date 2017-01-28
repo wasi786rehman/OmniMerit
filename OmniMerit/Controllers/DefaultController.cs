@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.IO;
 using OmniMerit.Models;
+using OmniMerit.Models.CustomModel;
 
 namespace OmniMerit.Controllers
 {
@@ -16,7 +17,14 @@ namespace OmniMerit.Controllers
         public ActionResult Index()
         {
           
+           
             return View();
+        }
+        public ActionResult invalidcredential()
+        {
+
+            ViewBag.Message = "Invalid Login Details";
+            return View("Index");
         }
         public ActionResult Career()
         {

@@ -26,12 +26,19 @@ namespace OmniMerit.Models.CustomModel
             studentinfo.Class = studentinfomodel.Class;
             studentinfo.Phone = studentinfomodel.Phone;
 
+            login login = new login();
+            login.Name = studentinfo.Name;
+            login.Uid = uid;
+            login.Password = studentinfo.Password;
+
+
             try
             {
                 using (OmnimeritEntities modelentity = new OmnimeritEntities())
                 {
 
                     modelentity.StudentInfoes.Add(studentinfo);
+                    modelentity.logins.Add(login);
                     modelentity.SaveChanges();
                     return true;
                     
@@ -51,10 +58,13 @@ namespace OmniMerit.Models.CustomModel
         [Required(ErrorMessage = "Please provide Name .", AllowEmptyStrings = false)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Please provide Email Id.", AllowEmptyStrings = false)]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please provide Phone.", AllowEmptyStrings = false)]
+        [DataType(DataType.PhoneNumber)]
         public Nullable<int> Phone { get; set; }
         [Required(ErrorMessage = "Please provide Password.", AllowEmptyStrings = false)]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         public string Password { get; set; }
         [Required(ErrorMessage = "Please provide Class.", AllowEmptyStrings = false)]
         public string Class { get; set; }

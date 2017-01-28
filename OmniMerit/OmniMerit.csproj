@@ -240,12 +240,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\ForgetPasswordController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignUpInfoController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomModel\ForgetPassword.cs" />
     <Compile Include="Models\CustomModel\Login.cs" />
     <Compile Include="Models\CustomModel\SignUpModel.cs" />
     <Compile Include="Models\DataBase\login.cs">
@@ -301,6 +303,7 @@
     <Content Include="Scripts\Json\classXII.json" />
     <Content Include="Views\Default\Profile.cshtml" />
     <Content Include="Views\SignUpInfo\SignUp.cshtml" />
+    <Content Include="Views\ForgetPassword\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

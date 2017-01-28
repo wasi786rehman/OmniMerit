@@ -28,11 +28,18 @@ namespace OmniMerit.Controllers
                if(loginmodel.LoginModel(login))
                 return RedirectToAction("../default/profile");
                else
-                return RedirectToAction("../Default/Index");
+                return RedirectToAction("../Default/invalidcredential");
             }
 
             ViewBag.Message = "Invalid Login Details";
-            return RedirectToAction("../Default/Index");
+            return RedirectToAction("../Default/invalidcredential");
+        }
+
+        [System.Web.Http.HttpPost]
+        public ActionResult Forget(string Username)
+        {
+
+            return RedirectToAction("Index");
         }
     }
 }

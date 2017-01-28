@@ -64,12 +64,12 @@
 
 	};
 
-	var centerBlock = function() {
-		$('.fh5co-section-with-image .fh5co-box').css('margin-top', -($('.fh5co-section-with-image .fh5co-box').outerHeight()/2));
-	  	$(window).resize(function(){
-	  		$('.fh5co-section-with-image .fh5co-box').css('margin-top', -($('.fh5co-section-with-image .fh5co-box').outerHeight()/2));
-	  	});
-	};
+	//var centerBlock = function() {
+	//	$('.fh5co-section-with-image .fh5co-box').css('margin-top', -($('.fh5co-section-with-image .fh5co-box').outerHeight()/2));
+	//  	$(window).resize(function(){
+	//  		$('.fh5co-section-with-image .fh5co-box').css('margin-top', -($('.fh5co-section-with-image .fh5co-box').outerHeight()/2));
+	//  	});
+	//};
 
 	var responseHeight = function() {
 		setTimeout(function(){

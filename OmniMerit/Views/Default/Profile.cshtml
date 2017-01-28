@@ -6,23 +6,54 @@
 		
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<div id="fh5co-page">
+    <header id="fh5co-header" role="banner">
+
+        <div class="header-inner">
+            <a href="/../">
+                <img src="~/Scripts/images/imageedit_1_3947092529.png" class="logo" style="float:left; margin-right:1%; height:80px" />
+            </a>
+            <h1><a href="/../">OmniMerit<span></span></a></h1>
+            <p style="float:left; margin-top: 50px;color: greenyellow;margin-left: -156px;">Integrating Noble values </p>
 
 
-<div class="container-fluid">
-    <h1></h1>
 
-    <div class="row">
-        <div class="col-sm-4"><div id="chartdiv"></div></div>
-       
-        <div class="col-sm-4"></div>
+
+            <nav role="navigation">
+                <ul>
+
+
+                    <li><a href="#" class="home active">Home</a></li>
+
+                    <li><a href="#" class="scrollabout">About us</a></li>
+                    <li><a href="" class="scrollBottom">Courses</a></li>
+                    <li><a href="" class="scrollBottom">Contact Us </a></li>
+
+                    <li><a href="/Default/Career">Career</a></li>
+                    @*<li><a data-toggle="modal" data-target="#myModal"> Login</a></li>*@
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+   
+
+    <div style="">
+        <h1></h1>
+
+        <div class="row">
+            <div class="col-sm-4"><div id="chartdiv"></div></div>
+
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4"><div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
+            <div class="col-sm-4"></div>
+        </div>
     </div>
-    <div class="row">
-       
-        <div class="col-sm-4"><div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
-        <div class="col-sm-4"></div>
-    </div>
-</div>		
-<script>var chart = AmCharts.makeChart("chartdiv", {
+    <script>
+var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
     "marginTop": 0,
@@ -69,7 +100,7 @@
 });
 
 
-    
+
         Highcharts.chart('container', {
             title: {
                 text: 'Percentage/ Percentile ',
@@ -96,7 +127,7 @@
                 }]
             },
             tooltip: {
-                
+
             },
             legend: {
                 layout: 'vertical',
@@ -115,17 +146,17 @@
                  data: [18.75, 41.25, 26.25, 40.63, 56.93, 68.44]
              }]
         });
-   
-</script>					
 
-<style>
-    #chartdiv {
-	width	: 100%;
-	height	: 500px;
-}																		
-</style>	
+    </script>
+    </div>
+    <style>
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
 
 
-												
+
 
 
