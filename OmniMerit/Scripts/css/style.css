@@ -1625,8 +1625,11 @@ padding-right:150px;
     width: 79%;
     right: 10%;
     top: 8%;
-    height:645px;
+   
 }
 .tab-pane img{
     width:90%;
+}
+.tab-pane img img{
+    width:60%;
 }
