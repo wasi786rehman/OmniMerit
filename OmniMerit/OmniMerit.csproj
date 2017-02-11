@@ -250,6 +250,67 @@
     <Content Include="Scripts\Teamcss\style.css" />
     <Content Include="StudyMaterial\12_phy_5.1.GIF" />
     <Content Include="StudyMaterial\12_phy_5.2.GIF" />
+    <Content Include="StudyMaterial\Images\chem\chem1.png" />
+    <Content Include="StudyMaterial\Images\chem\chem10.png" />
+    <Content Include="StudyMaterial\Images\chem\chem11.png" />
+    <Content Include="StudyMaterial\Images\chem\chem12.png" />
+    <Content Include="StudyMaterial\Images\chem\chem13.png" />
+    <Content Include="StudyMaterial\Images\chem\chem14.png" />
+    <Content Include="StudyMaterial\Images\chem\chem15.png" />
+    <Content Include="StudyMaterial\Images\chem\chem16.png" />
+    <Content Include="StudyMaterial\Images\chem\chem17.png" />
+    <Content Include="StudyMaterial\Images\chem\chem18.png" />
+    <Content Include="StudyMaterial\Images\chem\chem19.png" />
+    <Content Include="StudyMaterial\Images\chem\chem2.png" />
+    <Content Include="StudyMaterial\Images\chem\chem20.png" />
+    <Content Include="StudyMaterial\Images\chem\chem21.png" />
+    <Content Include="StudyMaterial\Images\chem\chem22.png" />
+    <Content Include="StudyMaterial\Images\chem\chem23.png" />
+    <Content Include="StudyMaterial\Images\chem\chem24.png" />
+    <Content Include="StudyMaterial\Images\chem\chem25.png" />
+    <Content Include="StudyMaterial\Images\chem\chem26.png" />
+    <Content Include="StudyMaterial\Images\chem\chem27.png" />
+    <Content Include="StudyMaterial\Images\chem\chem28.png" />
+    <Content Include="StudyMaterial\Images\chem\chem29.png" />
+    <Content Include="StudyMaterial\Images\chem\chem3.png" />
+    <Content Include="StudyMaterial\Images\chem\chem30.png" />
+    <Content Include="StudyMaterial\Images\chem\chem4.png" />
+    <Content Include="StudyMaterial\Images\chem\chem5.png" />
+    <Content Include="StudyMaterial\Images\chem\chem6.png" />
+    <Content Include="StudyMaterial\Images\chem\chem7.png" />
+    <Content Include="StudyMaterial\Images\chem\chem8.png" />
+    <Content Include="StudyMaterial\Images\chem\chem9.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image001.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image002.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image003.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image004.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image005.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image006.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image007.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image008.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image009.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image010.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image011.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image012.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image013.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image014.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image015.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image016.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image017.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image018.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image019.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image020.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image021.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image022.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image023.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image024.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image025.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image026.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image027.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image028.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image029.png" />
+    <Content Include="StudyMaterial\Images\Chem_ans\image030.png" />
+    <Content Include="StudyMaterial\Images\phy1.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -262,6 +323,7 @@
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SignUpInfoController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -344,6 +406,10 @@
     <Content Include="Views\Default\Profile.cshtml" />
     <Content Include="Views\SignUpInfo\SignUp.cshtml" />
     <Content Include="Views\ForgetPassword\Index.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="StudyMaterial\IITMAINMOCK.pdf" />
+    <Content Include="StudyMaterial\IITMAINSOLUTION.pdf" />
+    <Content Include="Views\Test\TestPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
