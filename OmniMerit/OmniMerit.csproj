@@ -127,6 +127,16 @@
     <Content Include="fonts\icomoon\icomoon.svg" />
     <Content Include="fonts\icomoon\index.html" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DataBase\OmniMeritLocalModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
+      <LastGenOutput>OmniMeritLocalModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBase\OmniMeritLocalModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
+      <LastGenOutput>OmniMeritLocalModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\DataBase\OmniMeritModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>OmniMeritModel.edmx</DependentUpon>
@@ -153,6 +163,13 @@
     </EntityDeploy>
     <Content Include="Models\DataBase\OmniMeritModel.edmx.diagram">
       <DependentUpon>OmniMeritModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DataBase\OmniMeritLocalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OmniMeritLocalModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataBase\OmniMeritLocalModel.edmx.diagram">
+      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\omnimerit.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\OmniMerit.pubxml" />
@@ -242,6 +259,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ForgetPasswordController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SignUpInfoController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
@@ -249,9 +267,25 @@
     </Compile>
     <Compile Include="Models\CustomModel\ForgetPassword.cs" />
     <Compile Include="Models\CustomModel\Login.cs" />
+    <Compile Include="Models\CustomModel\Result.cs" />
     <Compile Include="Models\CustomModel\SignUpModel.cs" />
     <Compile Include="Models\DataBase\login.cs">
       <DependentUpon>OmniMeritModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\OmniMeritLocalModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmniMeritLocalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\OmniMeritLocalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\OmniMeritLocalModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBase\OmniMeritModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -268,8 +302,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OmniMeritModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataBase\phy_ques.cs">
+      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\poc_file2.cs">
+      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBase\Result.cs">
-      <DependentUpon>OmniMeritModel.tt</DependentUpon>
+      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBase\StudentInfo.cs">
       <DependentUpon>OmniMeritModel.tt</DependentUpon>
@@ -314,6 +354,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\images\resume\" />
+    <Folder Include="Views\Result\" />
     <Folder Include="Views\Subject\" />
   </ItemGroup>
   <ItemGroup>

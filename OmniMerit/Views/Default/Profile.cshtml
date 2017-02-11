@@ -3,7 +3,7 @@
 <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-		
+		<script src="/Scripts/jquery-1.10.2.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <div id="fh5co-page">
@@ -156,7 +156,9 @@ var chart = AmCharts.makeChart("chartdiv", {
         }
     </style>
 
-
+<script>
+    $.post("/Result/ShowResult/", {}, function (data) { debugger;alert(data[0]);});
+</script>
 
 
 

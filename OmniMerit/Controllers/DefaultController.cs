@@ -47,7 +47,7 @@ namespace OmniMerit.Controllers
         }
         public ActionResult Profile()
         {
-
+            TempData.Keep();
             return View();
         }
 

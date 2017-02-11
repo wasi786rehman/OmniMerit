@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="omnimeritModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="phy_ques">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="varchar" MaxLength="1500" />
+          <Property Name="opt1" Type="varchar" MaxLength="100" />
+          <Property Name="opt2" Type="varchar" MaxLength="100" />
+          <Property Name="opt3" Type="varchar" MaxLength="100" />
+          <Property Name="opt4" Type="varchar" MaxLength="100" />
+          <Property Name="answer" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'omnimerit.dbo.poc_file' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="poc_file">
+          <Property Name="file" Type="binary" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'omnimerit.dbo.poc_file1' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="poc_file1">
+          <Property Name="poc_file" Type="text" />
+        </EntityType>-->
+        <EntityType Name="poc_file2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="poc_file" Type="text" />
+        </EntityType>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="Result_ID" />
+          </Key>
+          <Property Name="S#no" Type="float" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mobile No" Type="float" />
+          <Property Name="State Code" Type="float" />
+          <Property Name="Centre Code" Type="float" />
+          <Property Name="Institute" Type="nvarchar" MaxLength="255" />
+          <Property Name="No of correct response" Type="float" />
+          <Property Name="No of Incorrect response" Type="float" />
+          <Property Name="No of responses Left Blank" Type="float" />
+          <Property Name="Score" Type="float" />
+          <Property Name="Percentage" Type="float" />
+          <Property Name="AIR " Type="float" />
+          <Property Name="Percentile" Type="nvarchar" MaxLength="255" />
+          <Property Name="Kanpur Rank" Type="float" />
+          <Property Name="Centre Rank" Type="nvarchar" MaxLength="255" />
+          <Property Name="Attempt Rate" Type="float" />
+          <Property Name="Accuracy" Type="float" />
+          <Property Name="F18" Type="nvarchar" MaxLength="255" />
+          <Property Name="Result_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'omnimerit.dbo.Sheet1$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Sheet1$">
+          <Property Name="Question" Type="nvarchar" MaxLength="255" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <EntityContainer Name="omnimeritModelStoreContainer">
+          <EntitySet Name="phy_ques" EntityType="Self.phy_ques" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="poc_file2" EntityType="Self.poc_file2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="result" EntityType="Self.result" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="omnimeritModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="phy_ques">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="opt1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="opt2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="opt3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="opt4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="answer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="poc_file2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="poc_file" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="omnimeritLocalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="phy_ques" EntityType="Self.phy_ques" />
+          <EntitySet Name="poc_file2" EntityType="Self.poc_file2" />
+          <EntitySet Name="results" EntityType="omnimeritModel.result" />
+        </EntityContainer>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="Result_ID" />
+          </Key>
+          <Property Name="S_no" Type="Double" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile_No" Type="Double" />
+          <Property Name="State_Code" Type="Double" />
+          <Property Name="Centre_Code" Type="Double" />
+          <Property Name="Institute" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="No_of_correct_response" Type="Double" />
+          <Property Name="No_of_Incorrect_response" Type="Double" />
+          <Property Name="No_of_responses_Left_Blank" Type="Double" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="Percentage" Type="Double" />
+          <Property Name="AIR_" Type="Double" />
+          <Property Name="Percentile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Kanpur_Rank" Type="Double" />
+          <Property Name="Centre_Rank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Attempt_Rate" Type="Double" />
+          <Property Name="Accuracy" Type="Double" />
+          <Property Name="F18" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Result_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="omnimeritModelStoreContainer" CdmEntityContainer="omnimeritLocalEntities">
+          <EntitySetMapping Name="phy_ques">
+            <EntityTypeMapping TypeName="omnimeritModel.phy_ques">
+              <MappingFragment StoreEntitySet="phy_ques">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="opt1" ColumnName="opt1" />
+                <ScalarProperty Name="opt2" ColumnName="opt2" />
+                <ScalarProperty Name="opt3" ColumnName="opt3" />
+                <ScalarProperty Name="opt4" ColumnName="opt4" />
+                <ScalarProperty Name="answer" ColumnName="answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="poc_file2">
+            <EntityTypeMapping TypeName="omnimeritModel.poc_file2">
+              <MappingFragment StoreEntitySet="poc_file2">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="poc_file" ColumnName="poc_file" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results">
+            <EntityTypeMapping TypeName="omnimeritModel.result">
+              <MappingFragment StoreEntitySet="result">
+                <ScalarProperty Name="Result_ID" ColumnName="Result_ID" />
+                <ScalarProperty Name="F18" ColumnName="F18" />
+                <ScalarProperty Name="Accuracy" ColumnName="Accuracy" />
+                <ScalarProperty Name="Attempt_Rate" ColumnName="Attempt Rate" />
+                <ScalarProperty Name="Centre_Rank" ColumnName="Centre Rank" />
+                <ScalarProperty Name="Kanpur_Rank" ColumnName="Kanpur Rank" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+                <ScalarProperty Name="AIR_" ColumnName="AIR " />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="No_of_responses_Left_Blank" ColumnName="No of responses Left Blank" />
+                <ScalarProperty Name="No_of_Incorrect_response" ColumnName="No of Incorrect response" />
+                <ScalarProperty Name="No_of_correct_response" ColumnName="No of correct response" />
+                <ScalarProperty Name="Institute" ColumnName="Institute" />
+                <ScalarProperty Name="Centre_Code" ColumnName="Centre Code" />
+                <ScalarProperty Name="State_Code" ColumnName="State Code" />
+                <ScalarProperty Name="Mobile_No" ColumnName="Mobile No" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="S_no" ColumnName="S#no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

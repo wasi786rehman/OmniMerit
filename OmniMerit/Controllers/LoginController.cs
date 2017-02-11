@@ -25,10 +25,13 @@ namespace OmniMerit.Controllers
 
             if (ModelState.IsValid)
             {
-               if(loginmodel.LoginModel(login))
-                return RedirectToAction("../default/profile");
-               else
-                return RedirectToAction("../Default/invalidcredential");
+                if (loginmodel.LoginModel(login))
+                {
+                    TempData["number"] = 9415050122;
+                    return RedirectToAction("../default/profile");
+                }
+                else
+                    return RedirectToAction("../Default/invalidcredential");
             }
 
             ViewBag.Message = "Invalid Login Details";
