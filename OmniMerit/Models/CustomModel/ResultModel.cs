@@ -5,22 +5,25 @@ using System.Web;
 using OmniMerit.Models.DataBase;
 namespace OmniMerit.Models.CustomModel
 {
-    public class Result
+    public class ResultModel
     {
-        public result ShowResultModel(double number)
+        public List<result> ShowResultModel(double number)
         {
             try
             {
                 using (omnimeritLocalEntities modelentity = new omnimeritLocalEntities())
                 {
-                    var v = modelentity.results.Where(model => model.Mobile_No==number);
-                    return v.FirstOrDefault();
+                    var v = modelentity.results.Where(model => model.Mobile_No==number).FirstOrDefault();
+                    List<result> list = new List<result>();
+                    list.Add(v);
+                    return list;
+                    
 
                     
                 }
             }
             catch (Exception e) {
-            return new result();}
+            return new List<result>();}
 
         }
     }

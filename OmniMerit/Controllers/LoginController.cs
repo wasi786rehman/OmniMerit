@@ -25,9 +25,10 @@ namespace OmniMerit.Controllers
 
             if (ModelState.IsValid)
             {
-                if (loginmodel.LoginModel(login))
-                {
-                    TempData["number"] = 9415050122;
+                
+                if(loginmodel.LoginModelNumber(login))
+                { 
+                    TempData["number"] = login.ID;
                     return RedirectToAction("../default/profile");
                 }
                 else

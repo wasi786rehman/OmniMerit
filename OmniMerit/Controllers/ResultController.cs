@@ -8,20 +8,16 @@ namespace OmniMerit.Controllers
 {
     public class ResultController : Controller
     {
-        // GET: Result
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
         [HttpPost]
         public JsonResult ShowResult()
-        {
-            //double number = Convert.ToDouble(Request.QueryString["number"].ToString());
-            double number = 7618028191;
-            double nn = Convert.ToDouble(TempData["number"].ToString());
-            Result result = new Result();
+        { 
+            double number = 0;
+            if (TempData["number"]!=null)
+                number = Convert.ToDouble(TempData["number"].ToString());
+            ResultModel result = new ResultModel();
             TempData.Keep();
-            return Json(result.ShowResultModel(number), JsonRequestBehavior.AllowGet);
+            return Json(result.ShowResultModel(number).ToList(), JsonRequestBehavior.AllowGet);
         }
     }
 }

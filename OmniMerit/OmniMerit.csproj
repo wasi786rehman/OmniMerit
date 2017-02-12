@@ -180,6 +180,27 @@
     <Content Include="Scripts\fonts\bootstrap\index.html" />
     <Content Include="Scripts\fonts\icomoon\icomoon.svg" />
     <Content Include="Scripts\fonts\icomoon\index.html" />
+    <Content Include="Scripts\Grid\css\dataTables.jqueryui.css" />
+    <Content Include="Scripts\Grid\css\jquery-ui.css" />
+    <Content Include="Scripts\Grid\css\jquery.dataTables.css" />
+    <Content Include="Scripts\Grid\css\jquery.dataTables.min.css" />
+    <Content Include="Scripts\Grid\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Scripts\Grid\css\jquery.dataTables_themeroller.min.css" />
+    <Content Include="Scripts\Grid\images\back_disabled.png" />
+    <Content Include="Scripts\Grid\images\back_enabled.png" />
+    <Content Include="Scripts\Grid\images\back_enabled_hover.png" />
+    <Content Include="Scripts\Grid\images\favicon.ico" />
+    <Content Include="Scripts\Grid\images\forward_disabled.png" />
+    <Content Include="Scripts\Grid\images\forward_enabled.png" />
+    <Content Include="Scripts\Grid\images\forward_enabled_hover.png" />
+    <Content Include="Scripts\Grid\images\sort_asc.png" />
+    <Content Include="Scripts\Grid\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\Grid\images\sort_both.png" />
+    <Content Include="Scripts\Grid\images\sort_desc.png" />
+    <Content Include="Scripts\Grid\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\Grid\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\Grid\js\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\Grid\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\images\.DS_Store" />
     <Content Include="Scripts\fonts\bootstrap\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
@@ -189,6 +210,7 @@
     <Content Include="Scripts\fonts\icomoon\icomoon.eot" />
     <Content Include="Scripts\fonts\icomoon\icomoon.ttf" />
     <Content Include="Scripts\fonts\icomoon\icomoon.woff" />
+    <Content Include="Scripts\Grid\images\Sorting icons.psd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Css\animate.css" />
     <Content Include="Scripts\Css\bootstrap.css" />
@@ -329,7 +351,7 @@
     </Compile>
     <Compile Include="Models\CustomModel\ForgetPassword.cs" />
     <Compile Include="Models\CustomModel\Login.cs" />
-    <Compile Include="Models\CustomModel\Result.cs" />
+    <Compile Include="Models\CustomModel\ResultModel.cs" />
     <Compile Include="Models\CustomModel\SignUpModel.cs" />
     <Compile Include="Models\DataBase\login.cs">
       <DependentUpon>OmniMeritModel.tt</DependentUpon>
@@ -402,7 +424,6 @@
     <Content Include="StudyMaterial\12_phy_ch3.pdf" />
     <Content Include="Views\Default\Engineering.cshtml" />
     <Content Include="Views\Default\Medical.cshtml" />
-    <Content Include="Scripts\Json\classXII.json" />
     <Content Include="Views\Default\Profile.cshtml" />
     <Content Include="Views\SignUpInfo\SignUp.cshtml" />
     <Content Include="Views\ForgetPassword\Index.cshtml" />

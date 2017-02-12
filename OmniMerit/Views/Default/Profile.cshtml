@@ -1,163 +1,75 @@
-﻿<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-<script src="https://www.amcharts.com/lib/3/serial.js"></script>
-<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-		<script src="/Scripts/jquery-1.10.2.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<div id="fh5co-page">
-    <header id="fh5co-header" role="banner">
+﻿<script src="~/Scripts/grid/js/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/grid/js/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/grid/js/dataTables.jqueryui.js"></script>
+<link href="~/Scripts/css/bootstrap.css" rel="stylesheet" />
 
+<link href="~/Scripts/grid/css/dataTables.jqueryui.css" rel="stylesheet" />
+<link href="~/Scripts/grid/css/jquery-ui.css" rel="stylesheet" />
+<link href="~/Scripts/grid/css/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/Scripts/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+<div id="fh5co-page">
+    <header id="fh5co-header" role="banner" style="background-color:black;">
         <div class="header-inner">
             <a href="/../">
                 <img src="~/Scripts/images/imageedit_1_3947092529.png" class="logo" style="float:left; margin-right:1%; height:80px" />
             </a>
             <h1><a href="/../">OmniMerit<span></span></a></h1>
             <p style="float:left; margin-top: 50px;color: greenyellow;margin-left: -156px;">Integrating Noble values </p>
-
-
-
-
             <nav role="navigation">
                 <ul>
 
 
                     <li><a href="#" class="home active">Home</a></li>
 
-                    <li><a href="#" class="scrollabout">About us</a></li>
-                    <li><a href="" class="scrollBottom">Courses</a></li>
-                    <li><a href="" class="scrollBottom">Contact Us </a></li>
-
-                    <li><a href="/Default/Career">Career</a></li>
-                    @*<li><a data-toggle="modal" data-target="#myModal"> Login</a></li>*@
+                   
                 </ul>
             </nav>
         </div>
 
     </header>
-   
-
-    <div style="">
-        <h1></h1>
-
-        <div class="row">
-            <div class="col-sm-4"><div id="chartdiv"></div></div>
-
-            <div class="col-sm-4"></div>
-        </div>
-        <div class="row">
-
-            <div class="col-sm-4"><div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
-            <div class="col-sm-4"></div>
-        </div>
-    </div>
-    <script>
-var chart = AmCharts.makeChart("chartdiv", {
-    "type": "serial",
-    "theme": "light",
-    "marginTop": 0,
-    "marginRight": 80,
-    "dataProvider": [{
-        "testno": "1",
-        "value": 67.50
-    }, {
-        "testno": "2",
-        "value": 148.50
-    }, {
-        "testno": "3",
-        "value": 94.50
-    }, {
-        "testno": "4",
-        "value": 146.25
-    }, {
-        "testno": "5",
-        "value": 204.93
-    }],
-    "valueAxes": [{
-        "axisAlpha": 0,
-        "position": "left"
-    }],
-    "graphs": [{
-        "id": "g1",
-        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
-        "bullet": "round",
-        "bulletSize": 8,
-        "lineColor": "#d1655d",
-        "lineThickness": 2,
-        "negativeLineColor": "#637bb6",
-        "type": "smoothedLine",
-        "valueField": "value"
-    }],
-
-
-
-    "categoryField": "testno",
-
-    "export": {
-        "enabled": true
-    }
-});
-
-
-
-        Highcharts.chart('container', {
-            title: {
-                text: 'Percentage/ Percentile ',
-                x: -20 //center
-            },
-            subtitle: {
-                text: '',
-                x: -20
-            },
-            xAxis: {
-                title: {
-                    text: 'Standarised Evaluation Exam '
-                },
-                categories: ['1', '2', '3', '4', '5', '6']
-            },
-            yAxis: {
-                title: {
-                    text: 'Percentage/ Percentile '
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            },
-            series: [
-             {
-
-
-                 name: 'Percentile',
-                 data: [45, 90, 65, 95, 98.3, 99.2]
-             }, {
-                 name: 'Percentage',
-                 data: [18.75, 41.25, 26.25, 40.63, 56.93, 68.44]
-             }]
-        });
-
-    </script>
-    </div>
-    <style>
-        #chartdiv {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
-
+    <br /><br /><br /><div></div>
+   <table id="result"></table>
+</div>
 <script>
-    $.post("/Result/ShowResult/", {}, function (data) { debugger;alert(data[0]);});
+    $.post("/Result/ShowResult/", {}, function (data) {
+        debugger;
+        $.noConflict();
+        $('#result').DataTable({
+            "scrollX": true,
+            
+            "aLengthMenu": [
+                [3, 5, 10],
+                ["three", "five", "ten"]
+            ],
+            "iDisplayLength": 5,
+            "aaData": data,
+            "aoColumns": [
+                 { "mData": "S_no", "sTitle": "S No" },
+                 { "mData": "Name", "sTitle": "Name" },
+
+                  { "mData": "Accuracy", "sTitle": "Accuracy" },
+            { "mData": "Mobile_No", "sTitle": "Mobile_No" },
+             { "mData": "State_Code", "sTitle": "State_Code" },
+              { "mData": "Centre_Code", "sTitle": "Centre_Code" },
+               { "mData": "Institute", "sTitle": "Institute" },
+                { "mData": "No_of_correct_response", "sTitle": "No_of_correct_response" },
+                 { "mData": "No_of_Incorrect_response", "sTitle": "No_of_Incorrect_response" },
+              { "mData": "Score", "sTitle": "Score" },
+              { "mData": "Percentage", "sTitle": "Percentage" },
+               { "mData": "AIR_", "sTitle": "AIR_" },
+              { "mData": "Percentile", "sTitle": "Percentile" },
+              { "mData": "Kanpur_Rank", "sTitle": "Kanpur_Rank" },
+               { "mData": "Centre_Rank", "sTitle": "Centre_Rank" },
+               { "mData": "Attempt_Rate", "sTitle": "Attempt_Rate" },
+              { "mData": "Accuracy", "sTitle": "Accuracy" },
+              { "mData": "Kanpur_Rank", "sTitle": "Kanpur_Rank" }
+
+           
+
+            ]
+        });
+    });
 </script>
 
 

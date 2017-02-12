@@ -30,6 +30,24 @@ namespace OmniMerit.Models.CustomModel
                 }
             }catch(Exception e) { return false; }
         }
+        public bool LoginModelNumber(Login login)
+        {
+            try
+            {
+                double number = Convert.ToDouble(login.ID);
+                double password = Convert.ToDouble(login.Password);
+                using (omnimeritLocalEntities modelentity = new omnimeritLocalEntities())
+                {
+                    var v = modelentity.results.Where(model => model.Mobile_No==number && model.Mobile_No== password).Count();
+
+                    if (v == 1)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            catch (Exception e) { return false; }
+        }
     }
    
 }
