@@ -16,8 +16,8 @@ namespace OmniMerit.Controllers
         // GET: Default
         public ActionResult Index()
         {
-          
-           
+
+            TempData.Remove("number");
             return View();
         }
         public ActionResult invalidcredential()

@@ -263,12 +263,12 @@
 
                         <div class="col-md-5">
 
-                            <fb:login-button size="large" data-size="Xlarge" da scope="public_profile,email" onlogin="checkLoginState();">
+                            @*<fb:login-button size="large" data-size="Xlarge" da scope="public_profile,email" onlogin="checkLoginState();">
                                 Login with facebook
                             </fb:login-button><br /><br />
                             <h4> Dont have an Account?Create One</h4>
                           <br />
-                            <a class="btn btn-primary pull-right" style="margin-top: 13px;" href="/SignUpInfo/SignUp">Sign Up</a>
+                            <a class="btn btn-primary pull-right" style="margin-top: 13px;" href="/SignUpInfo/SignUp">Sign Up</a>*@
                         </div>
                         <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
                             @using (Html.BeginForm("Login", "Login", FormMethod.Post,
@@ -286,7 +286,7 @@ new { enctype = "multipart/form-data" }))
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
                                 <div class="spacing"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"><small> Remember me</small></div>
-                                <div class="spacing"><a href="/ForgetPassword"><small> Forgot Password?</small></a><br /></div>
+                                @*<div class="spacing"><a href="/ForgetPassword"><small> Forgot Password?</small></a><br /></div>*@
                                
                                 <button id="singlebutton" type="submit" name="singlebutton" class="btn btn-primary pull-right">Log In</button>
                                 <div id="status"></div>

@@ -12,9 +12,9 @@ namespace OmniMerit.Models.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class result
+    public partial class AirResult
     {
-        public Nullable<double> S_no { get; set; }
+        public double S_no { get; set; }
         public string Name { get; set; }
         public Nullable<double> Mobile_No { get; set; }
         public Nullable<double> State_Code { get; set; }
@@ -24,14 +24,12 @@ namespace OmniMerit.Models.DataBase
         public Nullable<double> No_of_Incorrect_response { get; set; }
         public Nullable<double> No_of_responses_Left_Blank { get; set; }
         public Nullable<double> Score { get; set; }
-        public Nullable<double> Percentage { get; set; }
-        public Nullable<double> AIR_ { get; set; }
-        public string Percentile { get; set; }
+        public Nullable<float> Percentage { get; set; }
+        public Nullable<double> AIR { get; set; }
+        public Nullable<float> Percentile { get; set; }
         public Nullable<double> Kanpur_Rank { get; set; }
-        public string Centre_Rank { get; set; }
+        public Nullable<double> Centre_Rank { get; set; }
         public Nullable<double> Attempt_Rate { get; set; }
-        public Nullable<double> Accuracy { get; set; }
-        public string F18 { get; set; }
-        public int Result_ID { get; set; }
+        public Nullable<float> Accuracy { get; set; }
     }
 }

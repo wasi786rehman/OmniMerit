@@ -7,14 +7,14 @@ namespace OmniMerit.Models.CustomModel
 {
     public class ResultModel
     {
-        public List<result> ShowResultModel(double number)
+        public List<AirResult> ShowResultModel(double number)
         {
             try
             {
-                using (omnimeritLocalEntities modelentity = new omnimeritLocalEntities())
+                using (OmnimeritEntities modelentity = new OmnimeritEntities())
                 {
-                    var v = modelentity.results.Where(model => model.Mobile_No==number).FirstOrDefault();
-                    List<result> list = new List<result>();
+                    var v = modelentity.AirResults.Where(model => model.Mobile_No==number).FirstOrDefault();
+                    List<AirResult> list = new List<AirResult>();
                     list.Add(v);
                     return list;
                     
@@ -23,7 +23,7 @@ namespace OmniMerit.Models.CustomModel
                 }
             }
             catch (Exception e) {
-            return new List<result>();}
+            return new List<AirResult>();}
 
         }
     }

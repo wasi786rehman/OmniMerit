@@ -13,10 +13,10 @@ namespace OmniMerit.Models.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class omnimeritLocalEntities : DbContext
+    public partial class OmnimeritEntities : DbContext
     {
-        public omnimeritLocalEntities()
-            : base("name=omnimeritLocalEntities")
+        public OmnimeritEntities()
+            : base("name=OmnimeritEntities")
         {
         }
     
@@ -25,8 +25,8 @@ namespace OmniMerit.Models.DataBase
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<phy_ques> phy_ques { get; set; }
-        public virtual DbSet<poc_file2> poc_file2 { get; set; }
-        public virtual DbSet<result> results { get; set; }
+        public virtual DbSet<login> logins { get; set; }
+        public virtual DbSet<StudentInfo> StudentInfoes { get; set; }
+        public virtual DbSet<AirResult> AirResults { get; set; }
     }
 }

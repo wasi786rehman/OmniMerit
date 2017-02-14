@@ -127,25 +127,15 @@
     <Content Include="fonts\icomoon\icomoon.svg" />
     <Content Include="fonts\icomoon\index.html" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DataBase\OmniMeritLocalModel.Context.tt">
+    <Content Include="Models\DataBase\Omnimerit.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
-      <LastGenOutput>OmniMeritLocalModel.Context.cs</LastGenOutput>
+      <DependentUpon>Omnimerit.edmx</DependentUpon>
+      <LastGenOutput>Omnimerit.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DataBase\OmniMeritLocalModel.tt">
+    <Content Include="Models\DataBase\Omnimerit.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
-      <LastGenOutput>OmniMeritLocalModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DataBase\OmniMeritModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
-      <LastGenOutput>OmniMeritModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DataBase\OmniMeritModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
-      <LastGenOutput>OmniMeritModel.cs</LastGenOutput>
+      <DependentUpon>Omnimerit.edmx</DependentUpon>
+      <LastGenOutput>Omnimerit.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -157,19 +147,12 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
-    <EntityDeploy Include="Models\DataBase\OmniMeritModel.edmx">
+    <EntityDeploy Include="Models\DataBase\Omnimerit.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OmniMeritModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Omnimerit.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DataBase\OmniMeritModel.edmx.diagram">
-      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\DataBase\OmniMeritLocalModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OmniMeritLocalModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DataBase\OmniMeritLocalModel.edmx.diagram">
-      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
+    <Content Include="Models\DataBase\Omnimerit.edmx.diagram">
+      <DependentUpon>Omnimerit.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\omnimerit.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\OmniMerit.pubxml" />
@@ -353,50 +336,29 @@
     <Compile Include="Models\CustomModel\Login.cs" />
     <Compile Include="Models\CustomModel\ResultModel.cs" />
     <Compile Include="Models\CustomModel\SignUpModel.cs" />
+    <Compile Include="Models\DataBase\AirResult.cs">
+      <DependentUpon>Omnimerit.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBase\login.cs">
-      <DependentUpon>OmniMeritModel.tt</DependentUpon>
+      <DependentUpon>Omnimerit.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataBase\OmniMeritLocalModel.Context.cs">
+    <Compile Include="Models\DataBase\Omnimerit.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OmniMeritLocalModel.Context.tt</DependentUpon>
+      <DependentUpon>Omnimerit.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataBase\OmniMeritLocalModel.cs">
+    <Compile Include="Models\DataBase\Omnimerit.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
+      <DependentUpon>Omnimerit.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataBase\OmniMeritLocalModel.Designer.cs">
+    <Compile Include="Models\DataBase\Omnimerit.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OmniMeritLocalModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBase\OmniMeritModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OmniMeritModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBase\OmniMeritModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OmniMeritModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBase\OmniMeritModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OmniMeritModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBase\phy_ques.cs">
-      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBase\poc_file2.cs">
-      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBase\Result.cs">
-      <DependentUpon>OmniMeritLocalModel.tt</DependentUpon>
+      <DependentUpon>Omnimerit.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBase\StudentInfo.cs">
-      <DependentUpon>OmniMeritModel.tt</DependentUpon>
+      <DependentUpon>Omnimerit.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

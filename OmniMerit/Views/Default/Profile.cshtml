@@ -21,6 +21,7 @@
 
 
                     <li><a href="#" class="home active">Home</a></li>
+                    <li><a href="../Default/Index" class="">Logout</a></li>
 
                    
                 </ul>
@@ -28,47 +29,89 @@
         </div>
 
     </header>
-    <br /><br /><br /><div></div>
-   <table id="result"></table>
+    <br /><br /><br /><br /><div></div>
+   <table id="result" ></table>
+    <div style="padding:1%;text-align:center">
+        99 Percentiler Score Card
+    </div>
+    <table id="percent" class="display" cellspacing="0" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Percentage</th>
+                <th>Age</th>
+                <th>Attempt Rate</th>
+               
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>99 Percentiler </td>
+                <td>217</td>
+                <td>60.28</td>
+                <td>62.2</td>
+                <td>87.5</td>
+                
+            </tr>
+
+        </tbody>
+    </table>
 </div>
 <script>
     $.post("/Result/ShowResult/", {}, function (data) {
         debugger;
-        $.noConflict();
-        $('#result').DataTable({
-            "scrollX": true,
-            
-            "aLengthMenu": [
-                [3, 5, 10],
-                ["three", "five", "ten"]
-            ],
-            "iDisplayLength": 5,
-            "aaData": data,
-            "aoColumns": [
-                 { "mData": "S_no", "sTitle": "S No" },
-                 { "mData": "Name", "sTitle": "Name" },
+        if (data != null && data[0] != null) {
+            $.noConflict();
+            $('#result').DataTable({
+                "scrollX": true,
+                "paging": false,
+                "ordering": false,
+                "info": false,
+                "decimal": "2",
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": false ,
+                "iDisplayLength": 5,
+                "aaData": data,
+                "aoColumns": [
+                    
+                     { "mData": "Name", "sTitle": "Name" },
 
-                  { "mData": "Accuracy", "sTitle": "Accuracy" },
-            { "mData": "Mobile_No", "sTitle": "Mobile_No" },
-             { "mData": "State_Code", "sTitle": "State_Code" },
-              { "mData": "Centre_Code", "sTitle": "Centre_Code" },
-               { "mData": "Institute", "sTitle": "Institute" },
-                { "mData": "No_of_correct_response", "sTitle": "No_of_correct_response" },
-                 { "mData": "No_of_Incorrect_response", "sTitle": "No_of_Incorrect_response" },
-              { "mData": "Score", "sTitle": "Score" },
-              { "mData": "Percentage", "sTitle": "Percentage" },
-               { "mData": "AIR_", "sTitle": "AIR_" },
-              { "mData": "Percentile", "sTitle": "Percentile" },
-              { "mData": "Kanpur_Rank", "sTitle": "Kanpur_Rank" },
-               { "mData": "Centre_Rank", "sTitle": "Centre_Rank" },
-               { "mData": "Attempt_Rate", "sTitle": "Attempt_Rate" },
-              { "mData": "Accuracy", "sTitle": "Accuracy" },
-              { "mData": "Kanpur_Rank", "sTitle": "Kanpur_Rank" }
+                      { "mData": "Accuracy", "sTitle": "Accuracy" },
+               
+                 { "mData": "State_Code", "sTitle": "State Code" },
+                  { "mData": "Centre_Code", "sTitle": "Centre Code" },
+                   
+                    { "mData": "No_of_correct_response", "sTitle": "No of correct response" },
+                     { "mData": "No_of_Incorrect_response", "sTitle": "No of Incorrect response" },
+                  { "mData": "Score", "sTitle": "Score" },
+                  { "mData": "Percentage", "sTitle": "Percentage" },
+                   { "mData": "AIR", "sTitle": "AIR" },
+                  { "mData": "Percentile", "sTitle": "Percentile" },
+                  { "mData": "Kanpur_Rank", "sTitle": "Kanpur Rank" },
+                   { "mData": "Centre_Rank", "sTitle": "Centre Rank" },
+                   { "mData": "Attempt_Rate", "sTitle": "Attempt Rate" }
+                  
 
-           
 
-            ]
-        });
+
+
+                ]
+            });
+            $('#percent').DataTable({
+                "paging": false,
+                "ordering": false,
+                "info": false
+            });
+
+        }
+        else {
+            window.location.replace("https:www.omnimerit.com");
+        }
     });
 </script>
 

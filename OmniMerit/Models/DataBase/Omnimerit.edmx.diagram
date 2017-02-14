@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8bff5eea3e314b1a87756e5fb55f0ad4" Name="Diagram1">
+      <Diagram DiagramId="b6d05d0da5cb4325ab6d833ee501a8a8" Name="Diagram1">
         <EntityTypeShape EntityType="OmnimeritModel.login" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OmnimeritModel.Result" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="OmnimeritModel.StudentInfo" Width="1.5" PointX="7.125" PointY="0.625" />
+        <EntityTypeShape EntityType="OmnimeritModel.StudentInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.AirResult" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

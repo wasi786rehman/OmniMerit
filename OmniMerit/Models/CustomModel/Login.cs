@@ -19,9 +19,11 @@ namespace OmniMerit.Models.CustomModel
         {
             try
             {
+                double number = Convert.ToDouble(login.ID);
+                double password = Convert.ToDouble(login.Password);
                 using (OmnimeritEntities modelentity = new OmnimeritEntities())
                 {
-                    var v = modelentity.logins.Where(model => model.Name.Equals(login.ID) && model.Password.Equals(login.Password)).Count();
+                    var v = modelentity.AirResults.Where(model => model.Mobile_No == number && model.Mobile_No == password).Count();
 
                     if (v == 1)
                         return true;
@@ -30,24 +32,24 @@ namespace OmniMerit.Models.CustomModel
                 }
             }catch(Exception e) { return false; }
         }
-        public bool LoginModelNumber(Login login)
-        {
-            try
-            {
-                double number = Convert.ToDouble(login.ID);
-                double password = Convert.ToDouble(login.Password);
-                using (omnimeritLocalEntities modelentity = new omnimeritLocalEntities())
-                {
-                    var v = modelentity.results.Where(model => model.Mobile_No==number && model.Mobile_No== password).Count();
+        //public bool LoginModelNumber(Login login)
+        //{
+        //    try
+        //    {
+        //        double number = Convert.ToDouble(login.ID);
+        //        double password = Convert.ToDouble(login.Password);
+        //        using (omnimeritLocalEntities modelentity = new omnimeritLocalEntities())
+        //        {
+        //            var v = modelentity.results.Where(model => model.Mobile_No==number && model.Mobile_No== password).Count();
 
-                    if (v == 1)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-            catch (Exception e) { return false; }
-        }
+        //            if (v == 1)
+        //                return true;
+        //            else
+        //                return false;
+        //        }
+        //    }
+        //    catch (Exception e) { return false; }
+        //}
     }
    
 }

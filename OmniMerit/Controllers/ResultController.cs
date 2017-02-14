@@ -15,6 +15,7 @@ namespace OmniMerit.Controllers
             double number = 0;
             if (TempData["number"]!=null)
                 number = Convert.ToDouble(TempData["number"].ToString());
+           
             ResultModel result = new ResultModel();
             TempData.Keep();
             return Json(result.ShowResultModel(number).ToList(), JsonRequestBehavior.AllowGet);
