@@ -160,9 +160,7 @@
     <Content Include="Scripts\Css\bootstrap.css.map" />
     <Content Include="Scripts\Css\style.css.map" />
     <Content Include="Scripts\fonts\bootstrap\glyphicons-halflings-regular.svg" />
-    <Content Include="Scripts\fonts\bootstrap\index.html" />
     <Content Include="Scripts\fonts\icomoon\icomoon.svg" />
-    <Content Include="Scripts\fonts\icomoon\index.html" />
     <Content Include="Scripts\Grid\css\dataTables.jqueryui.css" />
     <Content Include="Scripts\Grid\css\jquery-ui.css" />
     <Content Include="Scripts\Grid\css\jquery.dataTables.css" />
@@ -199,7 +197,6 @@
     <Content Include="Scripts\Css\bootstrap.css" />
     <Content Include="Scripts\Css\flexslider.css" />
     <Content Include="Scripts\Css\icomoon.css" />
-    <Content Include="Scripts\Css\index.html" />
     <Content Include="Scripts\Css\style.css" />
     <Content Include="Scripts\images\18.svg" />
     <Content Include="Scripts\images\27.svg" />
@@ -327,7 +324,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SignUpInfoController.cs" />
-    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -380,19 +376,15 @@
     <Content Include="Scripts\sass\_bootstrap-mincer.scss" />
     <Content Include="Scripts\sass\_bootstrap-sprockets.scss" />
     <Content Include="Views\Default\Career.cshtml" />
-    <Content Include="Views\Default\Foundation.cshtml" />
     <Content Include="StudyMaterial\12_phy_ch1.pdf" />
     <Content Include="StudyMaterial\12_phy_ch2.pdf" />
     <Content Include="StudyMaterial\12_phy_ch3.pdf" />
-    <Content Include="Views\Default\Engineering.cshtml" />
-    <Content Include="Views\Default\Medical.cshtml" />
     <Content Include="Views\Default\Profile.cshtml" />
     <Content Include="Views\SignUpInfo\SignUp.cshtml" />
     <Content Include="Views\ForgetPassword\Index.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="StudyMaterial\IITMAINMOCK.pdf" />
     <Content Include="StudyMaterial\IITMAINSOLUTION.pdf" />
-    <Content Include="Views\Test\TestPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

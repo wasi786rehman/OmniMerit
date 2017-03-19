@@ -40,8 +40,9 @@
                 <th>Name</th>
                 <th>Score</th>
                 <th>Percentage</th>
-                <th>Age</th>
                 <th>Attempt Rate</th>
+                <th>Accuracy</th>
+                
                
             </tr>
         </thead>
@@ -80,32 +81,31 @@
                 "aoColumns": [
                     
                      { "mData": "Name", "sTitle": "Name" },
-
-                      { "mData": "Accuracy", "sTitle": "Accuracy" },
-               
-                 { "mData": "State_Code", "sTitle": "State Code" },
-                  { "mData": "Centre_Code", "sTitle": "Centre Code" },
-                   
-                    { "mData": "No_of_correct_response", "sTitle": "No of correct response" },
+                     { "mData": "Institute", "sTitle": "Institute" },
+                      { "mData": "No_of_correct_response", "sTitle": "No of correct response" },
                      { "mData": "No_of_Incorrect_response", "sTitle": "No of Incorrect response" },
+
+
+                   
                   { "mData": "Score", "sTitle": "Score" },
                   { "mData": "Percentage", "sTitle": "Percentage" },
                    { "mData": "AIR", "sTitle": "AIR" },
                   { "mData": "Percentile", "sTitle": "Percentile" },
                   { "mData": "Kanpur_Rank", "sTitle": "Kanpur Rank" },
                    { "mData": "Centre_Rank", "sTitle": "Centre Rank" },
-                   { "mData": "Attempt_Rate", "sTitle": "Attempt Rate" }
+                   { "mData": "Attempt_Rate", "sTitle": "Attempt Rate" },
+                { "mData": "Accuracy", "sTitle": "Accuracy" }
                   
-
-
-
 
                 ]
             });
             $('#percent').DataTable({
                 "paging": false,
                 "ordering": false,
-                "info": false
+                "info": false,
+                "scrollX": true,
+               
+            "responsive": true
             });
 
         }
