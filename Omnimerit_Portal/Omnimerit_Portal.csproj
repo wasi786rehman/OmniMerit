@@ -92,17 +92,36 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\Css\animate.min.css" />
+    <Content Include="Scripts\Css\Library\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Css\bootstrap.min.css" />
+    <Content Include="Scripts\Css\custom.min.css" />
+    <Content Include="Scripts\Css\font-awesome.min.css" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\Images\imageedit_1_3947092529.png" />
+    <Content Include="Scripts\Images\new_logo.png" />
+    <Content Include="Scripts\JavaScripts\bootstrap.js" />
+    <Content Include="Scripts\JavaScripts\bootstrap.min.js" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\dev.omnimerit.com - Web Deploy.pubxml" />
+    <None Include="Scripts\JavaScripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\JavaScripts\custom.min.js" />
+    <Content Include="Scripts\JavaScripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\JavaScripts\jquery.min.js" />
+    <Content Include="Scripts\JavaScripts\Library\bootstrap-progressbar.min.js" />
+    <Content Include="Scripts\JavaScripts\Library\nprogress.js" />
+    <Content Include="Scripts\JavaScripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\PortalController.cs" />
     <Compile Include="Global.asax.cs">
@@ -113,13 +132,16 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Portal\Index.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\MemberNotification.cshtml" />
+    <Content Include="Views\Admin\Courses.cshtml" />
+    <Content Include="Views\Admin\Batch.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -129,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

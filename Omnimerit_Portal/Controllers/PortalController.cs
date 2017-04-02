@@ -13,5 +13,6 @@ namespace Omnimerit_Portal.Controllers
         {
             return View();
         }
+
     }
 }
