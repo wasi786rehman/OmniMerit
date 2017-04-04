@@ -33,5 +33,26 @@ namespace Omnimerit_Portal.Admin
         {
             return PartialView("Batch");
         }
+        public ActionResult ClassTeacherAllocation()
+        {
+            return PartialView("ClassTeacherAllocation");
+        }
+        public ActionResult Subject()
+        {
+            return PartialView("Subject");
+        }
+        public ActionResult SubjectAllocation()
+        {
+            return PartialView("SubjectAllocation");
+        }
+        public ActionResult AssignSubject()
+        {
+            return PartialView("AssignSubject");
+        }
+        public ActionResult LessonPlanning()
+        {
+            return PartialView("LessonPlanning");
+        }
+
     }
 }

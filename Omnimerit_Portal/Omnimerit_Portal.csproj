@@ -142,6 +142,11 @@
     <Content Include="Views\Admin\MemberNotification.cshtml" />
     <Content Include="Views\Admin\Courses.cshtml" />
     <Content Include="Views\Admin\Batch.cshtml" />
+    <Content Include="Views\Admin\ClassTeacherAllocation.cshtml" />
+    <Content Include="Views\Admin\Subject.cshtml" />
+    <Content Include="Views\Admin\AssignSubject.cshtml" />
+    <Content Include="Views\Admin\SubjectAllocation.cshtml" />
+    <Content Include="Views\Admin\LessonPlanning.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
