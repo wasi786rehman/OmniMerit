@@ -28,5 +28,6 @@ namespace Omnimerit.Data.Model.Database
         public virtual DbSet<login> logins { get; set; }
         public virtual DbSet<StudentInfo> StudentInfoes { get; set; }
         public virtual DbSet<AirResult> AirResults { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
     }
 }

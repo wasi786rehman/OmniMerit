@@ -14,6 +14,10 @@
 <!-- FastClick -->
 <!-- Custom Theme Scripts -->
 <script src="~/Scripts/JavaScripts/custom.min.js"></script>
+<script src="~/Scripts/Utilities/Utilities.js"></script>
+<script src="~/Content/Script/JavaScript.js"></script>
+<script src="~/Scripts/JavaScripts/Library/jquery.dataTables.min.js"></script>
+<link href="~/Scripts/Css/Library/dataTables.bootstrap.min.css" rel="stylesheet" />
 <style>
     body{
         background-color:white;
@@ -49,31 +53,33 @@
             </div>
             <div class="x_content">
                 <br>
-                <form class="form-horizontal form-label-left">
+               @using (Html.BeginForm("AddCourse", "Admin", FormMethod.Post))
+               {
+                 <div class="form-horizontal form-label-left">
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Course Name</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Course Name">
+                            <input type="text" class="form-control" placeholder="Course Name" name="Name">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Description </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control"  placeholder="Description">
+                            <input type="text" class="form-control"  placeholder="Description" name="Description">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Code</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control"  placeholder="Code">
+                            <input type="text" class="form-control"  placeholder="Code" name="Code">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Minimum Attendance Percentage</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Minimum Attendance Percentage">
+                            <input type="text" class="form-control" placeholder="Minimum Attendance Percentage" name="Minimum_Attendance" >
                         </div>
                     </div>
 
@@ -81,7 +87,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Attendance Type</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select class="form-control">
+                            <select class="form-control" name="Attendance_Type">
                                 <option>Choose option</option>
                                 <option>Daily</option>
                                 <option>Weekly</option>
@@ -92,13 +98,13 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Total Working Days</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Total Working Days">
+                            <input type="text" class="form-control" placeholder="Total Working Days" name="Total_Day">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Syllabus</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select class="form-control">
+                            <select class="form-control" name="Syllabus_Name">
                                 <option>Choose option</option>
                                 <option></option>
                                 <option></option>
@@ -123,7 +129,8 @@
                         </div>
                     </div>
 
-                </form>
+                </div>
+               }
             </div>
         </div>
     </div>
@@ -154,7 +161,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <table class="table">
+                @*<table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -191,10 +198,11 @@
                             <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
                         </tr>
                     </tbody>
-                </table>
+                </table>*@
+                <table id="tabular"></table>
             </div>
         </div>
     </div>
 
-   
+  
 </div>

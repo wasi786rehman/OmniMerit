@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="OmnimeritModel.login" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OmnimeritModel.StudentInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OmnimeritModel.AirResult" Width="1.5" PointX="6.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Course" Width="1.5" PointX="4.5" PointY="1.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

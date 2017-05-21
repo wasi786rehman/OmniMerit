@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 using Omnimerit.Data.Model.Database;
 
 namespace Omnimerit.Data.BussinessLayer
@@ -28,7 +29,56 @@ namespace Omnimerit.Data.BussinessLayer
             }
             catch (Exception e) { return false; }
         }
+        #region Course
+        public bool AddCourse(Course entity)
+        {
+            try
+            {
 
+                using (OmnimeritEntities modelEntity = new OmnimeritEntities())
+                {
 
+                    modelEntity.Courses.Add(entity);
+                    modelEntity.SaveChanges();
+                    return true;
+
+                }
+            }
+            catch (Exception ex) { throw ex; }
+    
+
+       }
+
+        public List<Course> GetCourse(int id)
+        {
+            List<Course> courseList;
+            
+                try
+                {
+                    using (OmnimeritEntities modelEntity = new OmnimeritEntities())
+                    {
+
+                    if(id==0)
+                    {
+                        courseList = (from course in modelEntity.Courses
+                                      select course).ToList();
+                    }
+                    else
+                    {
+                        courseList = (from course in modelEntity.Courses
+                                      select course).Where(x=>x.Id==id).ToList();
+                    }
+                       
+                        return courseList;
+                    }
+                }
+                catch (Exception ex) {
+
+                throw ex;
+            }
+            
+        }
+
+        #endregion Course
     }
 }

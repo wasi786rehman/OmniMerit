@@ -91,9 +91,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Script\JavaScript.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Css\animate.min.css" />
     <Content Include="Scripts\Css\Library\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="Scripts\Css\Library\dataTables.bootstrap.css" />
+    <Content Include="Scripts\Css\Library\dataTables.bootstrap.min.css" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Css\bootstrap.min.css" />
@@ -116,8 +119,11 @@
     <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\JavaScripts\jquery.min.js" />
     <Content Include="Scripts\JavaScripts\Library\bootstrap-progressbar.min.js" />
+    <Content Include="Scripts\JavaScripts\Library\jquery.dataTables.js" />
+    <Content Include="Scripts\JavaScripts\Library\jquery.dataTables.min.js" />
     <Content Include="Scripts\JavaScripts\Library\nprogress.js" />
     <Content Include="Scripts\JavaScripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Utilities\Utilities.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
