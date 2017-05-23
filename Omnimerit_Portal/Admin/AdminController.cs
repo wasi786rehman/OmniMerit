@@ -29,7 +29,7 @@ namespace Omnimerit_Portal.Admin
         }
         public ActionResult Courses()
         {
-            return PartialView("Courses");
+            return PartialView("Courses",new Course());
         }
         public ActionResult Batch()
         {
@@ -59,12 +59,13 @@ namespace Omnimerit_Portal.Admin
 
         #region Course
         [HttpPost]
-        public JsonResult AddCourse(Course course)
+        public ActionResult AddCourse(Course course)
         {
 
             Business bussiness = new Business();
-
-            return Json(bussiness.AddCourse(course), JsonRequestBehavior.AllowGet);
+            bussiness.AddCourse(course);
+           // return Json(, JsonRequestBehavior.AllowGet);
+            return View("Index");
         }
 
         

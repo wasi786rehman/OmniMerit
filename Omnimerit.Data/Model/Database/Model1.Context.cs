@@ -25,9 +25,9 @@ namespace Omnimerit.Data.Model.Database
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<login> logins { get; set; }
         public virtual DbSet<StudentInfo> StudentInfoes { get; set; }
         public virtual DbSet<AirResult> AirResults { get; set; }
-        public virtual DbSet<Course> Courses { get; set; }
     }
 }

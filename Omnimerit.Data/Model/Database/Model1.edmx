@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OmnimeritModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="OmnimeritModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AirResult">
@@ -90,10 +90,24 @@ warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary k
     FROM [dbo].[AirResult] AS [AirResult]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OmnimeritModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Minimum_Attendance" Type="Int32" />
+          <Property Name="Attendance_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Day" Type="Int32" />
+          <Property Name="Syllabus_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="login">
           <Key>
             <PropertyRef Name="Id" />
@@ -139,30 +153,31 @@ warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary k
           <Property Name="Accuracy" Type="Single" />
         </EntityType>
         <EntityContainer Name="OmnimeritEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="logins" EntityType="Self.login" />
           <EntitySet Name="StudentInfoes" EntityType="Self.StudentInfo" />
           <EntitySet Name="AirResults" EntityType="Self.AirResult" />
-          <EntitySet Name="Courses" EntityType="OmnimeritModel.Course" />
         </EntityContainer>
-        <EntityType Name="Course">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Minimum_Attendance" Type="Int32" />
-          <Property Name="Attendance_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Total_Day" Type="Int32" />
-          <Property Name="Syllabus_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="OmnimeritModelStoreContainer" CdmEntityContainer="OmnimeritEntities">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="OmnimeritModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Minimum_Attendance" ColumnName="Minimum_Attendance" />
+                <ScalarProperty Name="Attendance_Type" ColumnName="Attendance_Type" />
+                <ScalarProperty Name="Total_Day" ColumnName="Total_Day" />
+                <ScalarProperty Name="Syllabus_Name" ColumnName="Syllabus_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="logins">
             <EntityTypeMapping TypeName="OmnimeritModel.login">
               <MappingFragment StoreEntitySet="login">
@@ -207,20 +222,6 @@ warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary k
                 <ScalarProperty Name="Centre_Rank" ColumnName="Centre Rank" />
                 <ScalarProperty Name="Attempt_Rate" ColumnName="Attempt Rate" />
                 <ScalarProperty Name="Accuracy" ColumnName="Accuracy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Courses">
-            <EntityTypeMapping TypeName="OmnimeritModel.Course">
-              <MappingFragment StoreEntitySet="Course">
-                <ScalarProperty Name="Syllabus_Name" ColumnName="Syllabus_Name" />
-                <ScalarProperty Name="Total_Day" ColumnName="Total_Day" />
-                <ScalarProperty Name="Attendance_Type" ColumnName="Attendance_Type" />
-                <ScalarProperty Name="Minimum_Attendance" ColumnName="Minimum_Attendance" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,4 +1,6 @@
 ﻿
+
+@model Omnimerit.Data.Model.Database.Course
 <link href="~/Scripts/Css/bootstrap.min.css" rel="stylesheet" />
 <!-- Font Awesome -->
 
@@ -60,7 +62,8 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Course Name</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Course Name" name="Name">
+                           @* <input type="text" class="form-control" placeholder="Course Name" name="Name">*@
+                            @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Course Name" })
                         </div>
                     </div>
                     <div class="form-group">
@@ -98,7 +101,10 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Total Working Days</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Total Working Days" name="Total_Day">
+                          @*  <input type="text" class="form-control" placeholder="Total Working Days" name="Total_Day">*@
+                         
+                            @Html.TextBox("Total_Day", null, new { @class = "form-control", placeholder = "Total Working Days" })
+                          
                         </div>
                     </div>
                     <div class="form-group">
@@ -199,7 +205,7 @@
                         </tr>
                     </tbody>
                 </table>*@
-                <table id="tabular"></table>
+                <table id="tabular" class="table table-striped"></table>
             </div>
         </div>
     </div>
