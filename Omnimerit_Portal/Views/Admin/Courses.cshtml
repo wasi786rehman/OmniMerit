@@ -1,25 +1,24 @@
 ﻿
 
-@model Omnimerit.Data.Model.Database.Course
-<link href="~/Scripts/Css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/PluginScripts/Css/bootstrap.min.css" rel="stylesheet" />
 <!-- Font Awesome -->
 
-<link href="~/Scripts/Css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/PluginScripts/Css/font-awesome.min.css" rel="stylesheet" />
 <!-- Custom Theme Style -->
 
-<link href="~/Scripts/Css/custom.min.css" rel="stylesheet" />
+<link href="~/PluginScripts/Css/custom.min.css" rel="stylesheet" />
     
-<script src="~/Scripts/JavaScripts/jquery.min.js"></script>
+<script src="~/PluginScripts/JavaScripts/jquery.min.js"></script>
 <!-- Bootstrap -->
 
-<script src="~/Scripts/JavaScripts/bootstrap.min.js"></script>
+<script src="~/PluginScripts/JavaScripts/bootstrap.min.js"></script>
 <!-- FastClick -->
 <!-- Custom Theme Scripts -->
-<script src="~/Scripts/JavaScripts/custom.min.js"></script>
-<script src="~/Scripts/Utilities/Utilities.js"></script>
-<script src="~/Content/Script/JavaScript.js"></script>
-<script src="~/Scripts/JavaScripts/Library/jquery.dataTables.min.js"></script>
-<link href="~/Scripts/Css/Library/dataTables.bootstrap.min.css" rel="stylesheet" />
+<script src="~/PluginScripts/JavaScripts/custom.min.js"></script>
+<script src="~/Utilities/Utilities.js"></script>
+<script src="~/Script/Course.js"></script>
+<script src="~/PluginScripts/JavaScripts/Library/jquery.dataTables.min.js"></script>
+<link href="~/PluginScripts/Css/Library/dataTables.bootstrap.min.css" rel="stylesheet" />
 <style>
     body{
         background-color:white;
@@ -63,26 +62,26 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Course Name</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                            @* <input type="text" class="form-control" placeholder="Course Name" name="Name">*@
-                            @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Course Name" })
+                            @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Course Name" ,id="coursename" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Description </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control"  placeholder="Description" name="Description">
+                            <input type="text" class="form-control"  placeholder="Description" name="Description" id="description">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Code</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control"  placeholder="Code" name="Code">
+                            <input type="text" class="form-control"  placeholder="Code" name="Code" id="code">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Minimum Attendance Percentage</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Minimum Attendance Percentage" name="Minimum_Attendance" >
+                            <input type="text" class="form-control" placeholder="Minimum Attendance Percentage" name="Minimum_Attendance" id="attendance" >
                         </div>
                     </div>
 
@@ -90,7 +89,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Attendance Type</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select class="form-control" name="Attendance_Type">
+                            <select class="form-control" name="Attendance_Type" id="attendance">
                                 <option>Choose option</option>
                                 <option>Daily</option>
                                 <option>Weekly</option>
@@ -103,7 +102,7 @@
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           @*  <input type="text" class="form-control" placeholder="Total Working Days" name="Total_Day">*@
                          
-                            @Html.TextBox("Total_Day", null, new { @class = "form-control", placeholder = "Total Working Days" })
+                            @Html.TextBox("Total_Day", null, new { @class = "form-control", placeholder = "Total Working Days" ,id="days" })
                           
                         </div>
                     </div>

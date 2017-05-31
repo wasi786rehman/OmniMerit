@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -89,41 +97,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Script\JavaScript.js" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\Css\animate.min.css" />
-    <Content Include="Scripts\Css\Library\bootstrap-progressbar-3.3.4.min.css" />
-    <Content Include="Scripts\Css\Library\dataTables.bootstrap.css" />
-    <Content Include="Scripts\Css\Library\dataTables.bootstrap.min.css" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Script\Course.js" />
+    <Content Include="PluginScripts\Css\animate.min.css" />
+    <Content Include="PluginScripts\Css\Library\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="PluginScripts\Css\Library\dataTables.bootstrap.css" />
+    <Content Include="PluginScripts\Css\Library\dataTables.bootstrap.min.css" />
+    <Content Include="PluginScripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Css\bootstrap.min.css" />
-    <Content Include="Scripts\Css\custom.min.css" />
-    <Content Include="Scripts\Css\font-awesome.min.css" />
-    <Content Include="Scripts\fonts\fontawesome-webfont.svg" />
-    <Content Include="Scripts\Images\imageedit_1_3947092529.png" />
-    <Content Include="Scripts\Images\new_logo.png" />
-    <Content Include="Scripts\JavaScripts\bootstrap.js" />
-    <Content Include="Scripts\JavaScripts\bootstrap.min.js" />
-    <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
-    <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Scripts\fonts\fontawesome-webfont.woff" />
-    <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Scripts\fonts\FontAwesome.otf" />
+    <Content Include="PluginScripts\Css\bootstrap.min.css" />
+    <Content Include="PluginScripts\Css\custom.min.css" />
+    <Content Include="PluginScripts\Css\font-awesome.min.css" />
+    <Content Include="PluginScripts\fonts\fontawesome-webfont.svg" />
+    <Content Include="PluginScripts\Images\imageedit_1_3947092529.png" />
+    <Content Include="PluginScripts\Images\new_logo.png" />
+    <Content Include="PluginScripts\JavaScripts\bootstrap.js" />
+    <Content Include="PluginScripts\JavaScripts\bootstrap.min.js" />
+    <Content Include="PluginScripts\fonts\fontawesome-webfont.eot" />
+    <Content Include="PluginScripts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="PluginScripts\fonts\fontawesome-webfont.woff" />
+    <Content Include="PluginScripts\fonts\fontawesome-webfont.woff2" />
+    <Content Include="PluginScripts\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\dev.omnimerit.com - Web Deploy.pubxml" />
-    <None Include="Scripts\JavaScripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\JavaScripts\custom.min.js" />
-    <Content Include="Scripts\JavaScripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\JavaScripts\jquery.min.js" />
-    <Content Include="Scripts\JavaScripts\Library\bootstrap-progressbar.min.js" />
-    <Content Include="Scripts\JavaScripts\Library\jquery.dataTables.js" />
-    <Content Include="Scripts\JavaScripts\Library\jquery.dataTables.min.js" />
-    <Content Include="Scripts\JavaScripts\Library\nprogress.js" />
-    <Content Include="Scripts\JavaScripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Utilities\Utilities.js" />
+    <None Include="PluginScripts\JavaScripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="PluginScripts\JavaScripts\custom.min.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery-1.10.2.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery-1.10.2.min.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery.min.js" />
+    <Content Include="PluginScripts\JavaScripts\Library\bootstrap-progressbar.min.js" />
+    <Content Include="PluginScripts\JavaScripts\Library\jquery.dataTables.js" />
+    <Content Include="PluginScripts\JavaScripts\Library\jquery.dataTables.min.js" />
+    <Content Include="PluginScripts\JavaScripts\Library\nprogress.js" />
+    <Content Include="PluginScripts\JavaScripts\modernizr-2.6.2.js" />
+    <Content Include="Utilities\Utilities.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,10 +144,10 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.map" />
+    <Content Include="PluginScripts\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="PluginScripts\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="PluginScripts\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="PluginScripts\JavaScripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Portal\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\MemberNotification.cshtml" />

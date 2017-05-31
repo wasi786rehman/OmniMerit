@@ -65,7 +65,7 @@ namespace Omnimerit_Portal.Admin
             Business bussiness = new Business();
             bussiness.AddCourse(course);
            // return Json(, JsonRequestBehavior.AllowGet);
-            return View("Index");
+            return View("Courses");
         }
 
         
