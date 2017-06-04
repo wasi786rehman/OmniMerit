@@ -10,6 +10,7 @@ namespace Omnimerit_Portal.Admin
 {
     public class AdminController : Controller
     {
+        Business bussiness = new Business();
         // GET: Admin
         public ActionResult Index()
         {
@@ -62,10 +63,17 @@ namespace Omnimerit_Portal.Admin
         public ActionResult AddCourse(Course course)
         {
 
-            Business bussiness = new Business();
-            bussiness.AddCourse(course);
-           // return Json(, JsonRequestBehavior.AllowGet);
-            return View("Courses");
+            try
+            {
+                
+                bussiness.Update<Course>(course);
+                return View("Courses");
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+            
         }
 
         
@@ -73,10 +81,21 @@ namespace Omnimerit_Portal.Admin
         {
             Business bussiness = new Business();
 
-            return Json(bussiness.GetCourse(0), JsonRequestBehavior.AllowGet);
+            return Json(bussiness.Retrieve<Course>(), JsonRequestBehavior.AllowGet);
 
         }
-        
+        [HttpPost]
+        public JsonResult Delete(string Id)
+        {
+            Course c = new Course();
+            c.Id = Convert.ToInt16(Id);
+            Business bussiness = new Business();
+            bussiness.Delete<Course>(c);
+
+            return Json("", JsonRequestBehavior.AllowGet);
+
+        }
+
         #endregion Course
 
     }

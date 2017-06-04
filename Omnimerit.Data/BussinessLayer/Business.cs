@@ -10,7 +10,7 @@ namespace Omnimerit.Data.BussinessLayer
 {
     public class Business
     {
-        
+        OmnimeritEntities db = new OmnimeritEntities();
         public bool Login(login login)
         {
             try
@@ -30,24 +30,10 @@ namespace Omnimerit.Data.BussinessLayer
             catch (Exception e) { return false; }
         }
         #region Course
-        public bool AddCourse(Course entity)
-        {
-            try
-            {
+       
+       
+       
 
-                using (OmnimeritEntities modelEntity = new OmnimeritEntities())
-                {
-
-                    modelEntity.Courses.Add(entity);
-                    modelEntity.SaveChanges();
-                    return true;
-
-                }
-            }
-            catch (Exception ex) { throw ex; }
-    
-
-       }
 
         public List<Course> GetCourse(int id)
         {
@@ -80,5 +66,82 @@ namespace Omnimerit.Data.BussinessLayer
         }
 
         #endregion Course
+
+
+        #region Generic
+        public void Add<T>(T newItem) where T : class
+        {
+            try
+            {
+                db.Set<T>().Add(newItem);
+                db.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
+       }
+        public void Delete<T>(T newItem) where T : class
+        {
+            try { 
+            db.Entry(newItem).State = EntityState.Deleted;
+            db.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public List<T> Retrieve<T>() where T : class
+        {
+            try {
+
+                return db.Set<T>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        //public void Update<T>(T entity, Expression<Func<T, object>>[] properties) where T:class
+        //{
+        //    db.Entry(entity).State = EntityState.Unchanged;
+        //    //foreach (var property in properties)
+        //    //{, Expression<Func<T, object>>[] properties
+        //    //    var propertyName = ExpressionHelper.GetExpressionText(property);
+        //    //    DatabaseContext.Entry(entity).Property(propertyName).IsModified = true;
+        //    //}
+        //    //return DatabaseContext.SaveChangesWithoutValidation();
+        //}
+        //public virtual bool Exists(Guid id)
+        //{
+        //    return db.Set<T>().Any(t => t.Id == id);
+        //}
+
+        public  void Update<T>(T entity) where T:Course 
+        {
+
+
+
+            bool ifExist = db.Set<T>().Any(t => t.Id == entity.Id);
+            if (ifExist)
+            {
+
+
+                // db.Set<T>().Where(t => t.Id == entity.Id);
+                var oldEntity = db.Set<T>().Where(t => t.Id == entity.Id).FirstOrDefault();
+                db.Entry(oldEntity).CurrentValues.SetValues(entity);
+                db.Entry(entity).State = EntityState.Modified;
+                db.SaveChanges();
+                // Update(oldEntity);
+            }
+
+        }
+       
+        #endregion
     }
 }
