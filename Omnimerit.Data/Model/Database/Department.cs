@@ -12,11 +12,10 @@ namespace Omnimerit.Data.Model.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class login
+    public partial class Department
     {
         public int Id { get; set; }
-        public Nullable<int> Uid { get; set; }
         public string Name { get; set; }
-        public string Password { get; set; }
+        public string Code { get; set; }
     }
 }

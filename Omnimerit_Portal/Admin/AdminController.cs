@@ -30,6 +30,8 @@ namespace Omnimerit_Portal.Admin
         }
         public ActionResult Courses()
         {
+            
+
             return PartialView("Courses",new Course());
         }
         public ActionResult Batch()
@@ -65,7 +67,9 @@ namespace Omnimerit_Portal.Admin
 
             try
             {
-                
+                if(course.Id==0)
+                bussiness.Add<Course>(course);
+                else
                 bussiness.Update<Course>(course);
                 return View("Courses");
             }
@@ -91,7 +95,7 @@ namespace Omnimerit_Portal.Admin
             c.Id = Convert.ToInt16(Id);
             Business bussiness = new Business();
             bussiness.Delete<Course>(c);
-
+           // bussiness.Update<Course>(c);
             return Json("", JsonRequestBehavior.AllowGet);
 
         }

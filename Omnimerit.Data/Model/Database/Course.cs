@@ -11,9 +11,15 @@ namespace Omnimerit.Data.Model.Database
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Course
+    using Omnimerit.Data.BussinessLayer;
+    public partial class Course: Ient
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Course()
+        {
+            this.Batches = new HashSet<Batch>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -22,5 +28,8 @@ namespace Omnimerit.Data.Model.Database
         public string Attendance_Type { get; set; }
         public Nullable<int> Total_Day { get; set; }
         public string Syllabus_Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Batch> Batches { get; set; }
     }
 }

@@ -25,9 +25,11 @@ namespace Omnimerit.Data.Model.Database
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Bank_Detail> Bank_Detail { get; set; }
+        public virtual DbSet<Batch> Batches { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<login> logins { get; set; }
-        public virtual DbSet<StudentInfo> StudentInfoes { get; set; }
-        public virtual DbSet<AirResult> AirResults { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Designation> Designations { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
     }
 }

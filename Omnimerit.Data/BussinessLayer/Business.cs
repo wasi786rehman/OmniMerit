@@ -11,24 +11,24 @@ namespace Omnimerit.Data.BussinessLayer
     public class Business
     {
         OmnimeritEntities db = new OmnimeritEntities();
-        public bool Login(login login)
-        {
-            try
-            {
-                double number = Convert.ToDouble(login.Id);
-                double password = Convert.ToDouble(login.Password);
-                using (OmnimeritEntities modelentity = new OmnimeritEntities())
-                {
-                    var v = modelentity.AirResults.Where(model => model.Mobile_No == number && model.Mobile_No == password).Count();
+        //public bool Login(login login)
+        //{
+        //    try
+        //    {
+        //        double number = Convert.ToDouble(login.Id);
+        //        double password = Convert.ToDouble(login.Password);
+        //        using (OmnimeritEntities modelentity = new OmnimeritEntities())
+        //        {
+        //            var v = modelentity.AirResults.Where(model => model.Mobile_No == number && model.Mobile_No == password).Count();
 
-                    if (v == 1)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-            catch (Exception e) { return false; }
-        }
+        //            if (v == 1)
+        //                return true;
+        //            else
+        //                return false;
+        //        }
+        //    }
+        //    catch (Exception e) { return false; }
+        //}
         #region Course
        
        
@@ -122,26 +122,31 @@ namespace Omnimerit.Data.BussinessLayer
         //    return db.Set<T>().Any(t => t.Id == id);
         //}
 
-        public  void Update<T>(T entity) where T:Course 
+        public  void Update<T>(T entity) where T:class,Ient
         {
 
 
 
             bool ifExist = db.Set<T>().Any(t => t.Id == entity.Id);
             if (ifExist)
-            {
-
-
-                // db.Set<T>().Where(t => t.Id == entity.Id);
-                var oldEntity = db.Set<T>().Where(t => t.Id == entity.Id).FirstOrDefault();
-                db.Entry(oldEntity).CurrentValues.SetValues(entity);
-                db.Entry(entity).State = EntityState.Modified;
+            {  
+                var entry = db.Entry(entity);
+                if (entry.State == EntityState.Detached)
+                {
+                    db.Set<T>().Attach(entity);
+                    entry = db.Entry(entity);
+                }
+                entry.State = EntityState.Modified;
                 db.SaveChanges();
-                // Update(oldEntity);
             }
 
         }
-       
+        
         #endregion
     }
+    public interface Ient
+    {
+        int Id { get; set; }
+    }
+
 }

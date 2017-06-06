@@ -16,28 +16,28 @@ namespace Omnimerit_Portal.Controllers
         }
 
        
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(login login)
-        {
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Login(login login)
+        //{
            
 
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
+        //    var errors = ModelState.Values.SelectMany(v => v.Errors);
 
-            if (ModelState.IsValid)
-            {
-                Business business = new Business();
-                if (business.Login(login))
-                {
-                    TempData["number"] = login.Id;
-                    return RedirectToAction("../default/profile");
-                }
-                else
-                    return RedirectToAction("../Default/invalidcredential");
-            }
+        //    if (ModelState.IsValid)
+        //    {
+        //        Business business = new Business();
+        //        if (business.Login(login))
+        //        {
+        //            TempData["number"] = login.Id;
+        //            return RedirectToAction("../default/profile");
+        //        }
+        //        else
+        //            return RedirectToAction("../Default/invalidcredential");
+        //    }
 
-            ViewBag.Message = "Invalid Login Details";
-            return RedirectToAction("../Default/invalidcredential");
-        }
+        //    ViewBag.Message = "Invalid Login Details";
+        //    return RedirectToAction("../Default/invalidcredential");
+        //}
 
     }
 }

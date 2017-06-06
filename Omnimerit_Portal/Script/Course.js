@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
     
     CourseInit();
+
+
 });
 var Course;
 function Error()
@@ -55,33 +57,37 @@ function EditCourse(rowData)
         }
     });
 }
+
 function DeleteCourse(rowData)
 {
-    debugger;
-    alert("delete");
-    var courseobj = {};
-    //$.each(Course, function (index, value) {
-    //    if (value.Id == rowData) {
-    //        courseobj.Id = value.Id
-           
-    //    }
-    //});
-    var data = {Id:rowData};
+    if (confirm("Please Confirm to Delete"))
+    {
+        var data = { Id: rowData };
 
-    $.ajax({
-        method:'post',
-        url: 'Delete',
-       // contentType: "json",
-        data: data,
-        //dataType: "json",
-        success: Deletesuccess,
-        error: Deleteerror
-    });
+        $.ajax({
+            method: 'post',
+            url: 'Delete',
+           
+            data: data,
+           
+            success: Deletesuccess,
+            error: Deleteerror
+        });
+    }
+    
     
 }
 function Deletesuccess()
 {
-    alert("success deleted");
+    alert("successfully deleted");
+   
+    var table = $('#tabular').DataTable();
+    table.destroy();
+    $('#tabular').empty();
+    CourseInit();
+
+    
+   
 }
 function Deleteerror()
 {

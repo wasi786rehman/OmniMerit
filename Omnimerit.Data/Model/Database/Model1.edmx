@@ -5,29 +5,24 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="OmnimeritModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="AirResult">
+        <EntityType Name="Bank_Detail">
           <Key>
-            <PropertyRef Name="S#no" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="S#no" Type="float" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="255" />
-          <Property Name="Mobile No" Type="float" />
-          <Property Name="State Code" Type="float" />
-          <Property Name="Centre Code" Type="float" />
-          <Property Name="Institute" Type="nvarchar" MaxLength="255" />
-          <Property Name="No of correct response" Type="float" />
-          <Property Name="No of Incorrect response" Type="float" />
-          <Property Name="No of responses Left Blank" Type="float" />
-          <Property Name="Score" Type="float" />
-          <Property Name="Percentage" Type="real" />
-          <Property Name="AIR" Type="float" />
-          <Property Name="Percentile" Type="real" />
-          <Property Name="Kanpur Rank" Type="float" />
-          <Property Name="Centre Rank" Type="float" />
-          <Property Name="Attempt Rate" Type="float" />
-          <Property Name="Accuracy" Type="real" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course" Type="int" Nullable="false" />
+          <Property Name="Start_date" Type="date" />
+          <Property Name="End_date" Type="date" />
+          <Property Name="Max_Student" Type="int" />
+          <Property Name="Current_Student" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -42,59 +37,98 @@ warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary k
           <Property Name="Total_Day" Type="int" />
           <Property Name="Syllabus_Name" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="login">
+        <EntityType Name="Department">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Uid" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="20" />
-          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
         </EntityType>
-        <EntityType Name="StudentInfo">
+        <EntityType Name="Designation">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Uid" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="20" />
-          <Property Name="Email" Type="varchar" MaxLength="40" />
-          <Property Name="Phone" Type="int" />
-          <Property Name="Password" Type="varchar" MaxLength="20" />
-          <Property Name="Class" Type="varchar" MaxLength="10" />
-          <Property Name="Board" Type="varchar" MaxLength="20" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Employee_Code" Type="varchar" MaxLength="100" />
+          <Property Name="Joining_Date" Type="date" />
+          <Property Name="Qualification" Type="varchar" MaxLength="100" />
+          <Property Name="Total_Experience" Type="varchar" MaxLength="100" />
+          <Property Name="First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Middle_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Last_name" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="varchar" MaxLength="100" />
+          <Property Name="Gender" Type="varchar" MaxLength="100" />
+          <Property Name="Present_Address" Type="varchar(max)" />
+          <Property Name="Permanent_Address" Type="varchar(max)" />
+          <Property Name="City" Type="varchar(max)" />
+          <Property Name="Pin" Type="int" />
+          <Property Name="Country" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="int" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="User_Type" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Batch__Course__503BEA1C">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OmnimeritModelStoreContainer">
-          <EntitySet Name="Course" EntityType="Self.Course" Schema="wasi" store:Type="Tables" />
-          <EntitySet Name="login" EntityType="Self.login" Schema="wasi" store:Type="Tables" />
-          <EntitySet Name="StudentInfo" EntityType="Self.StudentInfo" Schema="wasi" store:Type="Tables" />
-          <EntitySet Name="AirResult" EntityType="Self.AirResult" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [AirResult].[S#no] AS [S#no], 
-    [AirResult].[Name] AS [Name], 
-    [AirResult].[Mobile No] AS [Mobile No], 
-    [AirResult].[State Code] AS [State Code], 
-    [AirResult].[Centre Code] AS [Centre Code], 
-    [AirResult].[Institute] AS [Institute], 
-    [AirResult].[No of correct response] AS [No of correct response], 
-    [AirResult].[No of Incorrect response] AS [No of Incorrect response], 
-    [AirResult].[No of responses Left Blank] AS [No of responses Left Blank], 
-    [AirResult].[Score] AS [Score], 
-    [AirResult].[Percentage] AS [Percentage], 
-    [AirResult].[AIR] AS [AIR], 
-    [AirResult].[Percentile] AS [Percentile], 
-    [AirResult].[Kanpur Rank] AS [Kanpur Rank], 
-    [AirResult].[Centre Rank] AS [Centre Rank], 
-    [AirResult].[Attempt Rate] AS [Attempt Rate], 
-    [AirResult].[Accuracy] AS [Accuracy]
-    FROM [dbo].[AirResult] AS [AirResult]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Bank_Detail" EntityType="Self.Bank_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Batch" EntityType="Self.Batch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Batch__Course__503BEA1C" Association="Self.FK__Batch__Course__503BEA1C">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Batch" EntitySet="Batch" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OmnimeritModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bank_Detail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course" Type="Int32" Nullable="false" />
+          <Property Name="Start_date" Type="DateTime" Precision="0" />
+          <Property Name="End_date" Type="DateTime" Precision="0" />
+          <Property Name="Max_Student" Type="Int32" />
+          <Property Name="Current_Student" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Course1" Relationship="Self.FK__Batch__Course__503BEA1C" FromRole="Batch" ToRole="Course" />
+        </EntityType>
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="Id" />
@@ -107,56 +141,74 @@ warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary k
           <Property Name="Attendance_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Total_Day" Type="Int32" />
           <Property Name="Syllabus_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Batches" Relationship="Self.FK__Batch__Course__503BEA1C" FromRole="Course" ToRole="Batch" />
         </EntityType>
-        <EntityType Name="login">
+        <EntityType Name="Department">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Uid" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="StudentInfo">
+        <EntityType Name="Designation">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Uid" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="Int32" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Class" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Board" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="AirResult">
+        <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="S_no" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="S_no" Type="Double" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Mobile_No" Type="Double" />
-          <Property Name="State_Code" Type="Double" />
-          <Property Name="Centre_Code" Type="Double" />
-          <Property Name="Institute" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="No_of_correct_response" Type="Double" />
-          <Property Name="No_of_Incorrect_response" Type="Double" />
-          <Property Name="No_of_responses_Left_Blank" Type="Double" />
-          <Property Name="Score" Type="Double" />
-          <Property Name="Percentage" Type="Single" />
-          <Property Name="AIR" Type="Double" />
-          <Property Name="Percentile" Type="Single" />
-          <Property Name="Kanpur_Rank" Type="Double" />
-          <Property Name="Centre_Rank" Type="Double" />
-          <Property Name="Attempt_Rate" Type="Double" />
-          <Property Name="Accuracy" Type="Single" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Joining_Date" Type="DateTime" Precision="0" />
+          <Property Name="Qualification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Experience" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Middle_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Present_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Permanent_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pin" Type="Int32" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="FK__Batch__Course__503BEA1C">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="Course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OmnimeritEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bank_Detail" EntityType="Self.Bank_Detail" />
+          <EntitySet Name="Batches" EntityType="Self.Batch" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
-          <EntitySet Name="logins" EntityType="Self.login" />
-          <EntitySet Name="StudentInfoes" EntityType="Self.StudentInfo" />
-          <EntitySet Name="AirResults" EntityType="Self.AirResult" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Designations" EntityType="Self.Designation" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <AssociationSet Name="FK__Batch__Course__503BEA1C" Association="Self.FK__Batch__Course__503BEA1C">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Batch" EntitySet="Batches" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -164,6 +216,27 @@ warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary k
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="OmnimeritModelStoreContainer" CdmEntityContainer="OmnimeritEntities">
+          <EntitySetMapping Name="Bank_Detail">
+            <EntityTypeMapping TypeName="OmnimeritModel.Bank_Detail">
+              <MappingFragment StoreEntitySet="Bank_Detail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Batches">
+            <EntityTypeMapping TypeName="OmnimeritModel.Batch">
+              <MappingFragment StoreEntitySet="Batch">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+                <ScalarProperty Name="End_date" ColumnName="End_date" />
+                <ScalarProperty Name="Max_Student" ColumnName="Max_Student" />
+                <ScalarProperty Name="Current_Student" ColumnName="Current_Student" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="OmnimeritModel.Course">
               <MappingFragment StoreEntitySet="Course">
@@ -178,50 +251,49 @@ warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="logins">
-            <EntityTypeMapping TypeName="OmnimeritModel.login">
-              <MappingFragment StoreEntitySet="login">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="OmnimeritModel.Department">
+              <MappingFragment StoreEntitySet="Department">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StudentInfoes">
-            <EntityTypeMapping TypeName="OmnimeritModel.StudentInfo">
-              <MappingFragment StoreEntitySet="StudentInfo">
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="OmnimeritModel.Designation">
+              <MappingFragment StoreEntitySet="Designation">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="OmnimeritModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+                <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+                <ScalarProperty Name="Joining_Date" ColumnName="Joining_Date" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Total_Experience" ColumnName="Total_Experience" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Middle_Name" ColumnName="Middle_Name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Present_Address" ColumnName="Present_Address" />
+                <ScalarProperty Name="Permanent_Address" ColumnName="Permanent_Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="Board" ColumnName="Board" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AirResults">
-            <EntityTypeMapping TypeName="OmnimeritModel.AirResult">
-              <MappingFragment StoreEntitySet="AirResult">
-                <ScalarProperty Name="S_no" ColumnName="S#no" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Mobile_No" ColumnName="Mobile No" />
-                <ScalarProperty Name="State_Code" ColumnName="State Code" />
-                <ScalarProperty Name="Centre_Code" ColumnName="Centre Code" />
-                <ScalarProperty Name="Institute" ColumnName="Institute" />
-                <ScalarProperty Name="No_of_correct_response" ColumnName="No of correct response" />
-                <ScalarProperty Name="No_of_Incorrect_response" ColumnName="No of Incorrect response" />
-                <ScalarProperty Name="No_of_responses_Left_Blank" ColumnName="No of responses Left Blank" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
-                <ScalarProperty Name="AIR" ColumnName="AIR" />
-                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
-                <ScalarProperty Name="Kanpur_Rank" ColumnName="Kanpur Rank" />
-                <ScalarProperty Name="Centre_Rank" ColumnName="Centre Rank" />
-                <ScalarProperty Name="Attempt_Rate" ColumnName="Attempt Rate" />
-                <ScalarProperty Name="Accuracy" ColumnName="Accuracy" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

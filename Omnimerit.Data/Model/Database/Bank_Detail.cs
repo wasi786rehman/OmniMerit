@@ -12,15 +12,9 @@ namespace Omnimerit.Data.Model.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentInfo
+    public partial class Bank_Detail
     {
         public int Id { get; set; }
-        public Nullable<int> Uid { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public Nullable<int> Phone { get; set; }
-        public string Password { get; set; }
-        public string Class { get; set; }
-        public string Board { get; set; }
     }
 }
