@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Omnimerit.Data.Model.Database;
 using Omnimerit.Data.BussinessLayer;
+using Newtonsoft.Json;
 
 namespace Omnimerit_Portal.Admin
 {
@@ -36,10 +37,14 @@ namespace Omnimerit_Portal.Admin
         }
         public ActionResult Batch()
         {
+            ViewBag.Course = bussiness.Retrieve<Course>();
+
             return PartialView("Batch");
         }
         public ActionResult ClassTeacherAllocation()
         {
+            ViewBag.Course = bussiness.Retrieve<Course>();
+            ViewBag.Batch = bussiness.Retrieve<Batch>();
             return PartialView("ClassTeacherAllocation");
         }
         public ActionResult Subject()
@@ -101,6 +106,47 @@ namespace Omnimerit_Portal.Admin
         }
 
         #endregion Course
+
+
+        public ActionResult AddBatch(Batch batch)
+        {
+           
+            try
+            {
+                if (batch.Id == 0)
+                    bussiness.Add<Batch>(batch);
+                else
+                    bussiness.Update<Batch>(batch);
+                return RedirectToAction("Batch");
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+
+        }
+        public JsonResult GetBatch()
+        {
+            Business bussiness = new Business();
+
+            var list = JsonConvert.SerializeObject(bussiness.Retrieve<Batch>(),Formatting.None,new JsonSerializerSettings(){
+                DateFormatString = "yyyy-MM-dd",
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                });
+
+            return Json(list, JsonRequestBehavior.AllowGet);
+
+        }
+        [HttpPost]
+        public JsonResult DeleteBatch(string Id)
+        {   Batch c = new Batch();
+            c.Id = Convert.ToInt16(Id);
+            Business bussiness = new Business();
+            bussiness.Delete<Batch>(c);
+            
+            return Json("", JsonRequestBehavior.AllowGet);
+
+        }
 
     }
 }

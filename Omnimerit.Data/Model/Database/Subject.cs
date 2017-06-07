@@ -11,17 +11,11 @@ namespace Omnimerit.Data.Model.Database
 {
     using System;
     using System.Collections.Generic;
-    using Omnimerit.Data.BussinessLayer;
-    public partial class Batch:Ient
+    
+    public partial class Subject
     {
         public int Id { get; set; }
-        public int Course { get; set; }
-        public Nullable<System.DateTime> Start_date { get; set; }
-        public Nullable<System.DateTime> End_date { get; set; }
-        public Nullable<int> Max_Student { get; set; }
-        public Nullable<int> Current_Student { get; set; }
         public string Name { get; set; }
-    
-        public  Course Course1 { get; set; }
+        public string Code { get; set; }
     }
 }

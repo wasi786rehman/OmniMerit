@@ -31,5 +31,7 @@ namespace Omnimerit.Data.Model.Database
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Designation> Designations { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<User_Type> User_Type { get; set; }
     }
 }
