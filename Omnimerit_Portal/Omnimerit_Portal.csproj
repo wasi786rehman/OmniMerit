@@ -163,6 +163,27 @@
     <Content Include="Views\Admin\AssignSubject.cshtml" />
     <Content Include="Views\Admin\SubjectAllocation.cshtml" />
     <Content Include="Views\Admin\LessonPlanning.cshtml" />
+    <Content Include="Views\Admin\SetTimeTable.cshtml" />
+    <Content Include="Views\Admin\ActiveTimeTable.cshtml" />
+    <Content Include="Views\Admin\Circular.cshtml" />
+    <Content Include="Views\Admin\Assignment.cshtml" />
+    <Content Include="Views\Admin\Notes.cshtml" />
+    <Content Include="Views\Admin\UserType.cshtml" />
+    <Content Include="Views\Admin\Department.cshtml" />
+    <Content Include="Views\Admin\Designation.cshtml" />
+    <Content Include="Views\Admin\Employee.cshtml" />
+    <Content Include="Views\Admin\EmployeeList.cshtml" />
+    <Content Include="Views\Admin\Bank.cshtml" />
+    <Content Include="Views\Admin\Route.cshtml" />
+    <Content Include="Views\Admin\Vehicle.cshtml" />
+    <Content Include="Views\Admin\Driver.cshtml" />
+    <Content Include="Views\Admin\Destination.cshtml" />
+    <Content Include="Views\Admin\TransportAllocation.cshtml" />
+    <Content Include="Views\Admin\BookCategory.cshtml" />
+    <Content Include="Views\Admin\Books.cshtml" />
+    <Content Include="Views\Admin\IssueBooks.cshtml" />
+    <Content Include="Views\Admin\RequestDetail.cshtml" />
+    <Content Include="Views\Admin\BookReturn.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

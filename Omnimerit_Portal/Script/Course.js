@@ -66,7 +66,7 @@ function DeleteCourse(rowData)
 
         $.ajax({
             method: 'post',
-            url: 'Delete',
+            url: 'DeleteCourse',
            
             data: data,
            

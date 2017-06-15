@@ -17,6 +17,7 @@ namespace Omnimerit_Portal.Admin
         {
            
             ViewBag.user = "Username";
+           // ViewBag.Categories = new MultiSelectList
             return View();
         }
         public ActionResult Admin()
@@ -31,9 +32,10 @@ namespace Omnimerit_Portal.Admin
         }
         public ActionResult Courses()
         {
-            
 
-            return PartialView("Courses",new Course());
+            Course cc = new Course();
+            cc.Code = "101";
+            return PartialView("Courses",cc);
         }
         public ActionResult Batch()
         {
@@ -63,6 +65,91 @@ namespace Omnimerit_Portal.Admin
         {
             return PartialView("LessonPlanning");
         }
+        public ActionResult SetTimeTable()
+        {
+            return PartialView("SetTimeTable");
+        }
+        public ActionResult ActiveTimeTable()
+        {
+            return PartialView("ActiveTimeTable");
+        }
+        public ActionResult Circular()
+        {
+            return PartialView("Circular");
+        }
+        public ActionResult Assignment()
+        {
+            return PartialView("Assignment");
+        }
+        public ActionResult Notes()
+        {
+            return PartialView("Notes");
+        }
+        public ActionResult UserType()
+        {
+            return PartialView("UserType");
+        }
+        public ActionResult Department()
+        {
+            return PartialView("Department");
+        }
+        public ActionResult Designation()
+        {
+            return PartialView("Designation");
+        }
+        public ActionResult Employee()
+        {
+            return PartialView("Employee");
+        }
+        public ActionResult EmployeeList()
+        {
+            return PartialView("EmployeeList");
+        }
+        public ActionResult Bank()
+        {
+            return PartialView("Bank");
+        }
+        public ActionResult Route()
+        {
+            return PartialView("Route");
+        }
+        public ActionResult Vehicle()
+        {
+            return PartialView("Vehicle");
+        }
+        public ActionResult Driver()
+        {
+            return PartialView("Driver");
+        }
+        public ActionResult Destination()
+        {
+            return PartialView("Destination");
+        }
+        public ActionResult TransportAllocation()
+        {
+            return PartialView("TransportAllocation");
+        }
+        public ActionResult BookCategory()
+        {
+            return PartialView("BookCategory");
+        }
+        public ActionResult Books()
+        {
+            return PartialView("Books");
+        }
+        public ActionResult IssueBooks()
+        {
+            return PartialView("IssueBooks");
+        }
+        public ActionResult RequestDetail()
+        {
+            return PartialView("RequestDetail");
+        }
+        public ActionResult BookReturn()
+        {
+            return PartialView("BookReturn");
+        }
+
 
 
         #region Course
@@ -94,7 +181,7 @@ namespace Omnimerit_Portal.Admin
 
         }
         [HttpPost]
-        public JsonResult Delete(string Id)
+        public JsonResult DeleteCourse(string Id)
         {
             Course c = new Course();
             c.Id = Convert.ToInt16(Id);
@@ -107,7 +194,7 @@ namespace Omnimerit_Portal.Admin
 
         #endregion Course
 
-
+        #region Batch
         public ActionResult AddBatch(Batch batch)
         {
            
@@ -147,6 +234,6 @@ namespace Omnimerit_Portal.Admin
             return Json("", JsonRequestBehavior.AllowGet);
 
         }
-
+        #endregion Batch
     }
 }

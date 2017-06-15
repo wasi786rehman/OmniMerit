@@ -26,7 +26,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"> <div class="profile_pic">
+                        <a href="index" class="site_title"> <div class="profile_pic">
                                                                      
                <img src="~/PluginScripts/Images/imageedit_1_3947092529.png" alt="OmniMerit" class="img-circle profile_img">
 </div>
@@ -100,14 +100,12 @@
                                             <a>Time Table<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Set TimeTable</a>
+                                                    <a onclick="change('SetTimeTable')">Set TimeTable</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#level2_1">Active TimeTable</a>
+                                                    <a onclick="change('ActiveTimeTable')">Active TimeTable</a>
                                                 </li>
-                                                <li>
-                                                    <a href="#level2_2">Class Teacher Allocation</a>
-                                                </li>
+                                                
                                             </ul>
                                         </li>
                                         
@@ -115,17 +113,17 @@
                                             <a>Assignment &amp; Notes <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Add Assignment</a>
+                                                    <a onclick="change('assignment')">Add Assignment</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#level2_1">Add Notes</a>
+                                                    <a onclick="change('notes')">Add Notes</a>
                                                 </li>
-                                                <li>
-                                                    <a href="#level2_2">Assignment Import</a>
-                                                </li>
+                                                @*<li>
+                                                    <a onclick="change('ActiveTimeTable')">Assignment Import</a>
+                                                </li>*@
                                             </ul>
                                         </li>
-                                        <li>
+                                        @*<li>
                                             <a>Certification<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
@@ -136,12 +134,12 @@
                                                 </li>
                                                
                                             </ul>
-                                        </li>
+                                        </li>*@
                                         <li>
                                             <a>Circulars<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Circular</a>
+                                                    <a onclick="change('Circular')">Circular</a>
                                                 </li>
                                                 
                                             </ul>
@@ -156,29 +154,29 @@
                                             <a>Employee Management <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Add User Type</a>
+                                                    <a onclick="change('UserType')">Add User Type</a>
                                                 </li>
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Add Department</a>
+                                                    <a onclick="change('Department')">Add Department</a>
                                                 </li>
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Add Employee</a>
+                                                    <a onclick="change('Employee')">Add Employee</a>
                                                 </li>
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Add Designation </a>
+                                                    <a onclick="change('Designation')">Add Designation </a>
                                                 </li>
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Employee List</a>
+                                                    <a onclick="change('employeelist')">Employee List</a>
                                                 </li>
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Add Bank Detail</a>
+                                                    <a onclick="change('bank')">Add Bank Detail</a>
+                                                </li>
+                                                @*<li class="sub_menu">
+                                                    <a onclick="change('Batch')">Print List</a>
                                                 </li>
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Print List</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Withdrawl</a>
-                                                </li>
+                                                    <a onclick="change('Batch')">Withdrawl</a>
+                                                </li>*@
 
                                             </ul>
                                         </li>
@@ -314,41 +312,41 @@
                                 <li>
                                     <a><i class="fa fa-clone"></i>Library <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="fixed_sidebar.html">Add Category</a></li>
-                                        <li><a href="fixed_footer.html">Add Books</a></li>
-                                        <li><a href="fixed_sidebar.html">issue Book</a></li>
-                                        <li><a href="fixed_footer.html">request Details</a></li>
-                                        <li><a href="fixed_sidebar.html">Book Return</a></li>
-                                        <li><a href="fixed_footer.html">Reports</a></li>
-                                        <li><a href="fixed_sidebar.html">Import</a></li>
+                                        <li><a onclick="change('BookCategory')">Add Category</a></li>
+                                        <li><a onclick="change('books')">Add Books</a></li>
+                                        <li><a onclick="change('issuebooks')">Issue Book</a></li>
+                                        <li><a onclick="change('requestdetail')">Request Details</a></li>
+                                        <li><a onclick="change('bookreturn')">Book Return</a></li>
+                                        @*<li><a onclick="change('vehicle')">Reports</a></li>
+                                        <li><a onclick="change('vehicle')">Import</a></li>*@
                                         
                                     </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-car"></i>Transport <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="fixed_sidebar.html">Add Vehicle</a></li>
-                                        <li><a href="fixed_footer.html">Add Driver</a></li>
-                                        <li><a href="fixed_sidebar.html">Add Route</a></li>
-                                        <li><a href="fixed_footer.html">Add Destination</a></li>
-                                        <li><a href="fixed_sidebar.html">Transport Allocation </a></li>
-                                        <li><a href="fixed_footer.html">Fee Collection </a></li>
-                                        <li><a href="fixed_sidebar.html">Import</a></li>
-                                        <li><a href="fixed_sidebar.html">Sms Alert</a></li>
+                                        <li><a onclick="change('vehicle')">Add Vehicle</a></li>
+                                        <li><a onclick="change('driver')">Add Driver</a></li>
+                                        <li><a onclick="change('route')">Add Route</a></li>
+                                        <li><a onclick="change('destination')">Add Destination</a></li>
+                                        <li><a onclick="change('TransportAllocation')">Transport Allocation </a></li>
+                                        @*<li><a onclick="change('AssignSubject')">Fee Collection </a></li>
+                                        <li><a onclick="change('AssignSubject')">Import</a></li>
+                                        <li><a onclick="change('AssignSubject')">Sms Alert</a></li>*@
                                     </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-bed"></i>Hostel <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li  class="sub_menu"><a href="fixed_sidebar.html">Hostel Details</a></li>
-                                        <li  class="sub_menu"><a href="fixed_footer.html">Hostel Rooms</a></li>
-                                        <li  class="sub_menu"><a href="fixed_sidebar.html">Hostel Allocation</a></li>
-                                        <li  class="sub_menu"><a href="fixed_footer.html">Request Details</a></li>
-                                        <li  class="sub_menu"><a href="fixed_sidebar.html">Hostel Transfer/Vacate</a></li>
-                                        <li class="sub_menu" ><a href="fixed_footer.html">Hostel Register </a></li>
-                                        <li  class="sub_menu"><a href="fixed_sidebar.html">Hostel Visitors</a></li>
-                                        <li  class="sub_menu"><a href="fixed_sidebar.html">Hostel Fee Collection</a></li>
-                                        <li  class="sub_menu"><a>Reports<span class="fa fa-chevron-down"></span></a>
+                                        <li  class="sub_menu"><a onclick="change('AssignSubject')">Hostel Details</a></li>
+                                        <li  class="sub_menu"><a onclick="change('AssignSubject')">Hostel Rooms</a></li>
+                                        <li  class="sub_menu"><a onclick="change('AssignSubject')">Hostel Allocation</a></li>
+                                        <li  class="sub_menu"><a onclick="change('AssignSubject')">Request Details</a></li>
+                                        <li  class="sub_menu"><a onclick="change('AssignSubject')">Hostel Transfer/Vacate</a></li>
+                                        <li class="sub_menu" ><a onclick="change('AssignSubject')">Hostel Register </a></li>
+                                        <li  class="sub_menu"><a onclick="change('AssignSubject')">Hostel Visitors</a></li>
+                                        <li  class="sub_menu"><a onclick="change('AssignSubject')">Hostel Fee Collection</a></li>
+                                        @*<li  class="sub_menu"><a>Reports<span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" >
                                             <li  class="sub_menu"><a>Hostel Detail Report</a></li>
                                             <li  class="sub_menu"><a>Room Availability Report</a></li>
@@ -357,7 +355,7 @@
                                             <li  class="sub_menu"><a>Fee Report</a></li>
                                             
                                         </ul>
-                                        </li>
+                                        </li>*@
                                     </ul>
                                 </li>
                                 <li>
