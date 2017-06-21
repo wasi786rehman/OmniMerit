@@ -101,7 +101,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Script\BankDetail.js" />
     <Content Include="Script\Batch.js" />
+    <Content Include="Script\ClassTeacherAllocation.js" />
     <Content Include="Script\Course.js" />
     <Content Include="PluginScripts\Css\animate.min.css" />
     <Content Include="PluginScripts\Css\Library\bootstrap-progressbar-3.3.4.min.css" />
@@ -133,6 +135,10 @@
     <Content Include="PluginScripts\JavaScripts\Library\jquery.dataTables.min.js" />
     <Content Include="PluginScripts\JavaScripts\Library\nprogress.js" />
     <Content Include="PluginScripts\JavaScripts\modernizr-2.6.2.js" />
+    <Content Include="Script\Department.js" />
+    <Content Include="Script\Designation.js" />
+    <Content Include="Script\Subject.js" />
+    <Content Include="Script\UserType.js" />
     <Content Include="Utilities\Utilities.js" />
     <Content Include="Web.config" />
   </ItemGroup>

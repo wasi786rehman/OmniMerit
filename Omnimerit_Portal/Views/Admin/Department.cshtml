@@ -17,7 +17,7 @@
 <!-- Custom Theme Scripts -->
 <script src="~/PluginScripts/JavaScripts/custom.min.js"></script>
 <script src="~/Utilities/Utilities.js"></script>
-
+<script src="~/Script/Department.js"></script>
 
 <script src="~/PluginScripts/JavaScripts/Library/jquery.dataTables.min.js"></script>
 <link href="~/PluginScripts/Css/Library/dataTables.bootstrap.min.css" rel="stylesheet" />
@@ -54,29 +54,41 @@
             </div>
             <div class="x_content">
                 <br>
-                <form class="form-horizontal form-label-left">
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Department</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            @* <input type="text" class="form-control" placeholder="Course Name" name="Name">*@
-                            @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Department", id = "coursename" })
+                @using (Html.BeginForm("AddDepartment", "Admin", FormMethod.Post))
+                {
+                    @Html.Hidden("Id")
+
+                    <div class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Department Name</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                @* <input type="text" class="form-control" placeholder="Course Name" name="Name">*@
+                                @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Department Name", id = "departmentname" })
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Department Code</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                @* <input type="text" class="form-control" placeholder="Course Name" name="Name">*@
+                                @Html.TextBox("Code", null, new { @class = "form-control", placeholder = "Department Code", id = "departmentcode" })
+                            </div>
+                        </div>
 
 
 
-                    <div class="ln_solid"></div>
-                    <div class="form-group">
-                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                            <button type="submit" class="btn btn-success">Save</button>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                <button type="submit" class="btn btn-success">Save</button>
 
-                            <button type="reset" class="btn btn-primary">Reset</button>
+                                <button type="reset" class="btn btn-primary">Reset</button>
+
+                            </div>
+                        </div>
 
                         </div>
+                        }
                     </div>
-
-                </form>
-            </div>
         </div>
     </div>
 
@@ -106,40 +118,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Course</th>
-                            <th>Batch</th>
-                            <th>Class Teacher</th>
-                            <th>Edit/Delete   </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Physics</td>
-                            <td>X-A</td>
-                            <td>A</td>
-                            <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Chemistry</td>
-                            <td>XI-B</td>
-                            <td>B</td>
-                            <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Math</td>
-                            <td>XII-A</td>
-                            <td>C</td>
-                            <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <table id="tabular" class="table table-striped"></table>
             </div>
         </div>
     </div>

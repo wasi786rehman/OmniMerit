@@ -11,8 +11,8 @@ namespace Omnimerit.Data.Model.Database
 {
     using System;
     using System.Collections.Generic;
-    using Omnimerit.Data.BussinessLayer;
-    public partial class Batch:Ient
+    
+    public partial class Batch
     {
         public int Id { get; set; }
         public int Course { get; set; }
@@ -22,6 +22,6 @@ namespace Omnimerit.Data.Model.Database
         public Nullable<int> Current_Student { get; set; }
         public string Name { get; set; }
     
-        public  Course Course1 { get; set; }
+        public virtual Course Course1 { get; set; }
     }
 }

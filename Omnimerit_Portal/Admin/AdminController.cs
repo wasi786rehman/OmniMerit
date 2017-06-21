@@ -13,6 +13,7 @@ namespace Omnimerit_Portal.Admin
     {
         Business bussiness = new Business();
         // GET: Admin
+        #region View
         public ActionResult Index()
         {
            
@@ -55,6 +56,10 @@ namespace Omnimerit_Portal.Admin
         }
         public ActionResult SubjectAllocation()
         {
+            ViewBag.Course = bussiness.Retrieve<Course>();
+            ViewBag.Batch = bussiness.Retrieve<Batch>();
+            ViewBag.Subject = bussiness.Retrieve<Subject>();
+            
             return PartialView("SubjectAllocation");
         }
         public ActionResult AssignSubject()
@@ -150,7 +155,7 @@ namespace Omnimerit_Portal.Admin
             return PartialView("BookReturn");
         }
 
-
+        #endregion View
 
         #region Course
         [HttpPost]
@@ -163,6 +168,7 @@ namespace Omnimerit_Portal.Admin
                 bussiness.Add<Course>(course);
                 else
                 bussiness.Update<Course>(course);
+                ModelState.Clear();
                 return View("Courses");
             }
             catch (Exception e)
@@ -175,14 +181,20 @@ namespace Omnimerit_Portal.Admin
         
         public JsonResult GetCourse()
         {
-            Business bussiness = new Business();
 
-            return Json(bussiness.Retrieve<Course>(), JsonRequestBehavior.AllowGet);
+            try
+            {
+                return Json(bussiness.Retrieve<Course>(), JsonRequestBehavior.AllowGet);
+            } catch (Exception ex)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
 
         }
         [HttpPost]
         public JsonResult DeleteCourse(string Id)
         {
+
             Course c = new Course();
             c.Id = Convert.ToInt16(Id);
             Business bussiness = new Business();
@@ -202,8 +214,8 @@ namespace Omnimerit_Portal.Admin
             {
                 if (batch.Id == 0)
                     bussiness.Add<Batch>(batch);
-                else
-                    bussiness.Update<Batch>(batch);
+               // else
+                   // bussiness.Update<Batch>(batch);
                 return RedirectToAction("Batch");
             }
             catch (Exception e)
@@ -214,14 +226,20 @@ namespace Omnimerit_Portal.Admin
         }
         public JsonResult GetBatch()
         {
-            Business bussiness = new Business();
+            try { 
 
-            var list = JsonConvert.SerializeObject(bussiness.Retrieve<Batch>(),Formatting.None,new JsonSerializerSettings(){
+            var list = JsonConvert.SerializeObject(bussiness.Retrieve<Batch>(), Formatting.None, new JsonSerializerSettings() {
                 DateFormatString = "yyyy-MM-dd",
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                });
+            });
 
-            return Json(list, JsonRequestBehavior.AllowGet);
+                return Json(list, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            
 
         }
         [HttpPost]
@@ -235,5 +253,249 @@ namespace Omnimerit_Portal.Admin
 
         }
         #endregion Batch
+
+        #region UserType
+        public ActionResult AddUserType(User_Type userType)
+        {
+            try
+            {
+                if (userType.Id == 0)
+                    bussiness.Add<User_Type>(userType);
+               // else
+                   // bussiness.Update<User_Type>(userType);
+                ModelState.Clear();
+                return View("UserType");
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+        }
+        public JsonResult GetUserType()
+        {
+            try
+            {
+
+                return Json(bussiness.Retrieve<User_Type>(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+
+        }
+        [HttpPost]
+        public JsonResult DeleteUserType(string Id)
+        {
+            try
+            {
+                User_Type c = new User_Type();
+                c.Id = Convert.ToInt16(Id);
+                bussiness.Delete<User_Type>(c);
+                return Json("", JsonRequestBehavior.AllowGet);
+            }catch(Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        #endregion UserType
+
+        #region Subject
+        public ActionResult AddSubject(Subject subject)
+        {
+            try
+            {
+                if (subject.Id == 0)
+                    bussiness.Add<Subject>(subject);
+               // else
+                   // bussiness.Update<Subject>(subject);
+                ModelState.Clear();
+                return View("Subject");
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+        }
+        public JsonResult GetSubject()
+        {
+            try
+            {
+
+                return Json(bussiness.Retrieve<Subject>(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+
+        }
+        [HttpPost]
+        public JsonResult DeleteSubject(string Id)
+        {
+            try
+            {
+                Subject c = new Subject();
+                c.Id = Convert.ToInt16(Id);
+                bussiness.Delete<Subject>(c);
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        #endregion Subject
+
+        #region Department
+        public ActionResult AddDepartment(Department department)
+        {
+            try
+            {
+                if (department.Id == 0)
+                    bussiness.Add<Department>(department);
+               // else
+                   // bussiness.Update<Department>(department);
+                ModelState.Clear();
+                return View("Department");
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+        }
+        public JsonResult GetDepartment()
+        {
+            try
+            {
+
+                return Json(bussiness.Retrieve<Department>(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+
+        }
+        [HttpPost]
+        public JsonResult DeleteDepartment(string Id)
+        {
+            try
+            {
+                Department c = new Department();
+                c.Id = Convert.ToInt16(Id);
+                bussiness.Delete<Department>(c);
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        #endregion Department
+
+        #region Designation
+        public ActionResult AddDesignation(Designation designation)
+        {
+            try
+            {
+                if (designation.Id == 0)
+                    bussiness.Add<Designation>(designation);
+               // else
+                   // bussiness.Update<Designation>(designation);
+                ModelState.Clear();
+                return View("Designation");
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+        }
+        public JsonResult GetDesignation()
+        {
+            try
+            {
+
+                return Json(bussiness.Retrieve<Designation>(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+
+        }
+        [HttpPost]
+        public JsonResult DeleteDesignation(string Id)
+        {
+            try
+            {
+                Designation c = new Designation();
+                c.Id = Convert.ToInt16(Id);
+                bussiness.Delete<Designation>(c);
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        #endregion UserType
+
+        #region BankDetail
+        public ActionResult AddBankDetail(Bank_Detail bankDetail)
+        {
+            try
+            {
+                if (bankDetail.Id == 0)
+                    bussiness.Add<Bank_Detail>(bankDetail);
+               // else
+                   // bussiness.Update<Bank_Detail>(bankDetail);
+                ModelState.Clear();
+                return View("Bank");
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+        }
+        public JsonResult GetBankDetail()
+        {
+            try
+            {
+
+                return Json(bussiness.Retrieve<Bank_Detail>(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+
+        }
+        [HttpPost]
+        public JsonResult DeleteBankDetail(string Id)
+        {
+            try
+            {
+                Bank_Detail c = new Bank_Detail();
+                c.Id = Convert.ToInt16(Id);
+                bussiness.Delete<Bank_Detail>(c);
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        #endregion BankDetail
     }
 }
