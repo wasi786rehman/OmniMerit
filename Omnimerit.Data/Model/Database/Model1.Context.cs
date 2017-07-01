@@ -25,13 +25,52 @@ namespace Omnimerit.Data.Model.Database
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AccountGroup> AccountGroups { get; set; }
+        public virtual DbSet<Assign_Subject> Assign_Subject { get; set; }
+        public virtual DbSet<Assignment> Assignments { get; set; }
         public virtual DbSet<Bank_Detail> Bank_Detail { get; set; }
         public virtual DbSet<Batch> Batches { get; set; }
+        public virtual DbSet<Book_Category> Book_Category { get; set; }
+        public virtual DbSet<Book_Issue> Book_Issue { get; set; }
+        public virtual DbSet<Book_Return> Book_Return { get; set; }
+        public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Certification> Certifications { get; set; }
+        public virtual DbSet<Circular> Circulars { get; set; }
+        public virtual DbSet<Class_Teacher> Class_Teacher { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Designation> Designations { get; set; }
+        public virtual DbSet<Destination> Destinations { get; set; }
+        public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual DbSet<Elective_Subject_Allocation> Elective_Subject_Allocation { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Employee_Bank_Detail> Employee_Bank_Detail { get; set; }
+        public virtual DbSet<FeeCategory> FeeCategories { get; set; }
+        public virtual DbSet<Hostel> Hostels { get; set; }
+        public virtual DbSet<Hostel_Register> Hostel_Register { get; set; }
+        public virtual DbSet<Hostel_Registration> Hostel_Registration { get; set; }
+        public virtual DbSet<Hostel_Room> Hostel_Room { get; set; }
+        public virtual DbSet<Hostel_Type> Hostel_Type { get; set; }
+        public virtual DbSet<Hostel_Vistor> Hostel_Vistor { get; set; }
+        public virtual DbSet<Institutional_Detail> Institutional_Detail { get; set; }
+        public virtual DbSet<Leave_Application> Leave_Application { get; set; }
+        public virtual DbSet<Leave_Category> Leave_Category { get; set; }
+        public virtual DbSet<Leave_Detail> Leave_Detail { get; set; }
+        public virtual DbSet<LessonPlanning> LessonPlannings { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Note> Notes { get; set; }
+        public virtual DbSet<Route> Routes { get; set; }
+        public virtual DbSet<Salary> Salaries { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Student_Category> Student_Category { get; set; }
+        public virtual DbSet<Student_Parent_Detail> Student_Parent_Detail { get; set; }
+        public virtual DbSet<Student_Personal_Detail> Student_Personal_Detail { get; set; }
+        public virtual DbSet<Student_Prequalification_Detail> Student_Prequalification_Detail { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<Subject_Allocation> Subject_Allocation { get; set; }
+        public virtual DbSet<Transport_Allocation> Transport_Allocation { get; set; }
+        public virtual DbSet<Transport_Detail> Transport_Detail { get; set; }
+        public virtual DbSet<TransportAllocationDetail> TransportAllocationDetails { get; set; }
         public virtual DbSet<User_Type> User_Type { get; set; }
     }
 }

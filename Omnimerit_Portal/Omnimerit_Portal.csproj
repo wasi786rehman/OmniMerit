@@ -101,6 +101,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PluginScripts\Css\bootstrap.css" />
+    <Content Include="PluginScripts\Css\buttons.dataTables.min.css" />
+    <Content Include="PluginScripts\Css\jquery-ui.min.css" />
+    <Content Include="PluginScripts\Css\prettify.min.css" />
+    <Content Include="PluginScripts\Grid\css\dataTables.jqueryui.css" />
+    <Content Include="PluginScripts\Grid\css\jquery-ui.css" />
+    <Content Include="PluginScripts\Grid\css\jquery.dataTables.css" />
+    <Content Include="PluginScripts\Grid\css\jquery.dataTables.min.css" />
+    <Content Include="PluginScripts\Grid\css\jquery.dataTables_themeroller.css" />
+    <Content Include="PluginScripts\Grid\css\jquery.dataTables_themeroller.min.css" />
+    <Content Include="PluginScripts\Grid\js\dataTables.jqueryui.js" />
+    <Content Include="PluginScripts\Grid\js\jquery-1.8.2.min.js" />
+    <Content Include="PluginScripts\Grid\js\jquery.dataTables.min.js" />
+    <Content Include="PluginScripts\JavaScripts\bootstrap-wysiwyg.min.js" />
+    <Content Include="PluginScripts\JavaScripts\buttons.flash.min.js" />
+    <Content Include="PluginScripts\JavaScripts\buttons.HTML5.min.js" />
+    <Content Include="PluginScripts\JavaScripts\dataTables.buttons.min.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery-1.12.4.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery-ui.min.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery.autocomplete.min.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery.dataTables.min.js" />
+    <Content Include="PluginScripts\JavaScripts\jquery.hotkeys.js" />
+    <Content Include="PluginScripts\JavaScripts\jszip.min.js" />
+    <Content Include="PluginScripts\JavaScripts\prettify.js" />
+    <Content Include="PluginScripts\JavaScripts\starrr.js" />
+    <Content Include="Script\AccountGroup.js" />
     <Content Include="Script\BankDetail.js" />
     <Content Include="Script\Batch.js" />
     <Content Include="Script\ClassTeacherAllocation.js" />
@@ -137,7 +163,12 @@
     <Content Include="PluginScripts\JavaScripts\modernizr-2.6.2.js" />
     <Content Include="Script\Department.js" />
     <Content Include="Script\Designation.js" />
+    <Content Include="Script\FeeCategory.js" />
+    <Content Include="Script\GetCircular.js" />
+    <Content Include="Script\LessonPlanning.js" />
+    <Content Include="Script\ManageTransportAllocation.js" />
     <Content Include="Script\Subject.js" />
+    <Content Include="Script\TransportAllocation.js" />
     <Content Include="Script\UserType.js" />
     <Content Include="Utilities\Utilities.js" />
     <Content Include="Web.config" />
@@ -146,6 +177,7 @@
     <Compile Include="Admin\AdminController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\PortalController.cs" />
+    <Compile Include="Employee\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +222,14 @@
     <Content Include="Views\Admin\IssueBooks.cshtml" />
     <Content Include="Views\Admin\RequestDetail.cshtml" />
     <Content Include="Views\Admin\BookReturn.cshtml" />
+    <Content Include="Views\Employee\AccountGroup.cshtml" />
+    <Content Include="Views\Employee\ActiveTimeTable.cshtml" />
+    <Content Include="Views\Employee\Circular.cshtml" />
+    <Content Include="Views\Employee\FeeCategory.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\LessonPlanning.cshtml" />
+    <Content Include="Views\Employee\SetTimeTable.cshtml" />
+    <Content Include="Views\Employee\VoucherHead.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

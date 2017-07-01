@@ -11,61 +11,26 @@ namespace Omnimerit.Data.BussinessLayer
     public class Business
     {
         OmnimeritEntities db = new OmnimeritEntities();
-        //public bool Login(login login)
-        //{
-        //    try
-        //    {
-        //        double number = Convert.ToDouble(login.Id);
-        //        double password = Convert.ToDouble(login.Password);
-        //        using (OmnimeritEntities modelentity = new OmnimeritEntities())
-        //        {
-        //            var v = modelentity.AirResults.Where(model => model.Mobile_No == number && model.Mobile_No == password).Count();
-
-        //            if (v == 1)
-        //                return true;
-        //            else
-        //                return false;
-        //        }
-        //    }
-        //    catch (Exception e) { return false; }
-        //}
-        #region Course
        
-       
-       
-
-
-        public List<Course> GetCourse(int id)
+        public Login Login(Login login)
         {
-            List<Course> courseList;
             
-                try
-                {
-                    using (OmnimeritEntities modelEntity = new OmnimeritEntities())
-                    {
-
-                    if(id==0)
-                    {
-                        courseList = (from course in modelEntity.Courses
-                                      select course).ToList();
-                    }
-                    else
-                    {
-                        courseList = (from course in modelEntity.Courses
-                                      select course).Where(x=>x.Id==id).ToList();
-                    }
-                       
-                        return courseList;
-                    }
-                }
-                catch (Exception ex) {
-
-                throw ex;
+            try
+            {
+                var log = (from f in db.Logins
+                           where f.User_Id == login.User_Id && f.User_Password == login.User_Password
+                           select f).ToList();
+                
+               return log.Count == 1 ? log.FirstOrDefault() : new Login();
+                
             }
+            catch(Exception ex)
+            {
+                return new Login();
+            }
+           
             
         }
-
-        #endregion Course
 
 
         #region Generic
@@ -98,7 +63,7 @@ namespace Omnimerit.Data.BussinessLayer
         public List<T> Retrieve<T>() where T : class
         {
             try {
-
+                db.Configuration.ProxyCreationEnabled = false;
                 return db.Set<T>().ToList();
             }
             catch (Exception ex)
@@ -107,21 +72,7 @@ namespace Omnimerit.Data.BussinessLayer
             }
 
         }
-        //public void Update<T>(T entity, Expression<Func<T, object>>[] properties) where T:class
-        //{
-        //    db.Entry(entity).State = EntityState.Unchanged;
-        //    //foreach (var property in properties)
-        //    //{, Expression<Func<T, object>>[] properties
-        //    //    var propertyName = ExpressionHelper.GetExpressionText(property);
-        //    //    DatabaseContext.Entry(entity).Property(propertyName).IsModified = true;
-        //    //}
-        //    //return DatabaseContext.SaveChangesWithoutValidation();
-        //}
-        //public virtual bool Exists(Guid id)
-        //{
-        //    return db.Set<T>().Any(t => t.Id == id);
-        //}
-
+      
         public  void Update<T>(T entity) where T:class,Ient
         {
 
@@ -141,7 +92,77 @@ namespace Omnimerit.Data.BussinessLayer
             }
 
         }
-        
+
+        #endregion
+
+
+        #region FeeDetails
+
+        public TransportAllocationDetail GetFeeDetails()
+        {
+            TransportAllocationDetail tad = new TransportAllocationDetail();
+            tad = (from c in db.TransportAllocationDetails where c.UserType == "Employee" && c.UserName == "Gunjan" select c).FirstOrDefault();
+
+            return tad;
+
+        }
+        public List<TransportAllocationDetail> GetUserNameList(string UserType)
+        {
+            List<TransportAllocationDetail> tad = new List<TransportAllocationDetail>();
+            tad = (from d in db.TransportAllocationDetails where d.UserType == UserType select d).ToList();
+
+            return tad;
+        }
+
+        #endregion
+        #region LessonPlanning
+
+        public List<LessonPlanning> GetExcelData(LessonPlanning data)
+        {
+
+            try
+            {
+                List<LessonPlanning> lp = new List<LessonPlanning>();
+
+
+                if ((data.Course != null) && (data.Batch != null) && (data.Subject != null))
+                {
+
+                    lp = (from e in db.LessonPlannings where e.Course == data.Course && e.Batch == data.Batch && e.Subject == data.Subject select e).ToList();
+
+
+
+                }
+
+                return lp;
+            }
+            catch (Exception ex) { throw ex; }
+
+        }
+        #endregion
+        #region ManageTransportAllocation
+
+        public bool UpdateManageTransportAllocation(TransportAllocationDetail tad)
+        {
+            try
+            {
+                if (Convert.ToInt16(tad.Id) > 0)
+                {
+                    TransportAllocationDetail tt = (from c in db.TransportAllocationDetails where c.Id == tad.Id select c).FirstOrDefault();
+                    tt.RouteCode = tad.RouteCode;
+                    tt.Source = tad.Source;
+                    tt.Destination = tad.Destination;
+                    db.SaveChanges();
+
+
+                }
+                return true;
+            }
+            catch (Exception ex) { throw ex; }
+
+
+
+        }
         #endregion
     }
     public interface Ient

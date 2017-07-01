@@ -14,11 +14,11 @@ namespace Omnimerit_Portal.Admin
         Business bussiness = new Business();
         // GET: Admin
         #region View
-        public ActionResult Index()
+        public ActionResult Index(Login log)
         {
-           
-            ViewBag.user = "Username";
-           // ViewBag.Categories = new MultiSelectList
+
+            Session["user"] = log.User_Id;
+            Session["Institution_Code"]= log.Institution_Code;
             return View();
         }
         public ActionResult Admin()
@@ -33,29 +33,31 @@ namespace Omnimerit_Portal.Admin
         }
         public ActionResult Courses()
         {
-
-            Course cc = new Course();
-            cc.Code = "101";
-            return PartialView("Courses",cc);
+            
+            return PartialView("Courses");
         }
         public ActionResult Batch()
         {
+            
             ViewBag.Course = bussiness.Retrieve<Course>();
 
             return PartialView("Batch");
         }
         public ActionResult ClassTeacherAllocation()
         {
+            
             ViewBag.Course = bussiness.Retrieve<Course>();
             ViewBag.Batch = bussiness.Retrieve<Batch>();
             return PartialView("ClassTeacherAllocation");
         }
         public ActionResult Subject()
         {
+            
             return PartialView("Subject");
         }
         public ActionResult SubjectAllocation()
         {
+            
             ViewBag.Course = bussiness.Retrieve<Course>();
             ViewBag.Batch = bussiness.Retrieve<Batch>();
             ViewBag.Subject = bussiness.Retrieve<Subject>();
@@ -64,94 +66,117 @@ namespace Omnimerit_Portal.Admin
         }
         public ActionResult AssignSubject()
         {
+            
             return PartialView("AssignSubject");
         }
         public ActionResult LessonPlanning()
         {
+            
             return PartialView("LessonPlanning");
         }
         public ActionResult SetTimeTable()
         {
+            
             return PartialView("SetTimeTable");
         }
         public ActionResult ActiveTimeTable()
         {
+            
             return PartialView("ActiveTimeTable");
         }
         public ActionResult Circular()
         {
+            
             return PartialView("Circular");
         }
         public ActionResult Assignment()
         {
+            
             return PartialView("Assignment");
         }
         public ActionResult Notes()
         {
+            
             return PartialView("Notes");
         }
         public ActionResult UserType()
         {
+            
             return PartialView("UserType");
         }
         public ActionResult Department()
         {
+            
             return PartialView("Department");
         }
         public ActionResult Designation()
         {
+            
             return PartialView("Designation");
         }
         public ActionResult Employee()
         {
+            
             return PartialView("Employee");
         }
         public ActionResult EmployeeList()
         {
+            
             return PartialView("EmployeeList");
         }
         public ActionResult Bank()
         {
+            
             return PartialView("Bank");
         }
         public ActionResult Route()
         {
+            
             return PartialView("Route");
         }
         public ActionResult Vehicle()
         {
+            
             return PartialView("Vehicle");
         }
         public ActionResult Driver()
         {
+            
             return PartialView("Driver");
         }
         public ActionResult Destination()
         {
+            
             return PartialView("Destination");
         }
         public ActionResult TransportAllocation()
         {
+            
             return PartialView("TransportAllocation");
         }
         public ActionResult BookCategory()
         {
+            
             return PartialView("BookCategory");
         }
         public ActionResult Books()
         {
+            
             return PartialView("Books");
         }
         public ActionResult IssueBooks()
         {
+            
             return PartialView("IssueBooks");
         }
         public ActionResult RequestDetail()
         {
+            
             return PartialView("RequestDetail");
         }
         public ActionResult BookReturn()
         {
+            
             return PartialView("BookReturn");
         }
 
@@ -161,13 +186,26 @@ namespace Omnimerit_Portal.Admin
         [HttpPost]
         public ActionResult AddCourse(Course course)
         {
-
+            
+            
             try
             {
-                if(course.Id==0)
-                bussiness.Add<Course>(course);
+
+                if (course.Id == 0)
+                {
+                   
+                    course.Created_By = Session["user"].ToString();
+                    course.Institution_Code = Session["Institution_Code"].ToString();
+                    course.Created_On = DateTime.Now;
+                    bussiness.Add<Course>(course);
+                }
                 else
-                bussiness.Update<Course>(course);
+                {
+                    course.Modified_By = Session["user"].ToString();
+                    course.Modified_On = DateTime.Now;
+                    bussiness.Update<Course>(course);
+                }
+
                 ModelState.Clear();
                 return View("Courses");
             }
@@ -184,7 +222,12 @@ namespace Omnimerit_Portal.Admin
 
             try
             {
-                return Json(bussiness.Retrieve<Course>(), JsonRequestBehavior.AllowGet);
+                string Institution_Code = Session["Institution_Code"].ToString();
+                var course = (from f in bussiness.Retrieve<Course>()
+                        where f.Institution_Code == Institution_Code
+                        select f).ToList();
+
+                return Json(course, JsonRequestBehavior.AllowGet);
             } catch (Exception ex)
             {
                 return Json("", JsonRequestBehavior.AllowGet);
@@ -199,7 +242,7 @@ namespace Omnimerit_Portal.Admin
             c.Id = Convert.ToInt16(Id);
             Business bussiness = new Business();
             bussiness.Delete<Course>(c);
-           // bussiness.Update<Course>(c);
+           
             return Json("", JsonRequestBehavior.AllowGet);
 
         }
@@ -213,9 +256,19 @@ namespace Omnimerit_Portal.Admin
             try
             {
                 if (batch.Id == 0)
+                {
+                    batch.Created_By = Session["user"].ToString();
+                    batch.Institution_Code = Session["Institution_Code"].ToString();
+
                     bussiness.Add<Batch>(batch);
-               // else
-                   // bussiness.Update<Batch>(batch);
+                }
+                else
+                {
+                    batch.Modified_By = Session["user"].ToString();
+                    batch.Modified_On = DateTime.Now;
+                    bussiness.Update<Batch>(batch);
+                }
+
                 return RedirectToAction("Batch");
             }
             catch (Exception e)
@@ -260,9 +313,19 @@ namespace Omnimerit_Portal.Admin
             try
             {
                 if (userType.Id == 0)
+                {
+                    userType.Created_By = Session["user"].ToString();
+                    userType.Institution_Code = Session["Institution_Code"].ToString();
+                
                     bussiness.Add<User_Type>(userType);
-               // else
-                   // bussiness.Update<User_Type>(userType);
+                }
+                 else
+                {
+                    userType.Modified_By = Session["user"].ToString();
+                    userType.Modified_On = DateTime.Now;
+                    bussiness.Update<User_Type>(userType);
+                }
+
                 ModelState.Clear();
                 return View("UserType");
             }
@@ -308,9 +371,19 @@ namespace Omnimerit_Portal.Admin
             try
             {
                 if (subject.Id == 0)
+                {
+                    subject.Created_By = Session["user"].ToString();
+                    subject.Institution_Code = Session["Institution_Code"].ToString();
+
                     bussiness.Add<Subject>(subject);
-               // else
-                   // bussiness.Update<Subject>(subject);
+                }
+                 else
+                {
+                    subject.Modified_By = Session["user"].ToString();
+                    subject.Modified_On = DateTime.Now;
+                    bussiness.Update<Subject>(subject);
+                }
+
                 ModelState.Clear();
                 return View("Subject");
             }
@@ -357,9 +430,18 @@ namespace Omnimerit_Portal.Admin
             try
             {
                 if (department.Id == 0)
+                {
+                    department.Created_By = Session["user"].ToString();
+                    department.Institution_Code = Session["Institution_Code"].ToString();
+
                     bussiness.Add<Department>(department);
-               // else
-                   // bussiness.Update<Department>(department);
+                }else
+                {
+                    department.Modified_By = Session["user"].ToString();
+                    department.Modified_On = DateTime.Now;
+                    bussiness.Update<Department>(department);
+                }
+
                 ModelState.Clear();
                 return View("Department");
             }
@@ -406,9 +488,18 @@ namespace Omnimerit_Portal.Admin
             try
             {
                 if (designation.Id == 0)
+                {
+                    designation.Created_By = Session["user"].ToString();
+                    designation.Institution_Code = Session["Institution_Code"].ToString();
+
                     bussiness.Add<Designation>(designation);
-               // else
-                   // bussiness.Update<Designation>(designation);
+                }else
+                {
+                    designation.Modified_By = Session["user"].ToString();
+                    designation.Modified_On = DateTime.Now;
+                    bussiness.Update<Designation>(designation);
+                }
+
                 ModelState.Clear();
                 return View("Designation");
             }
@@ -455,9 +546,18 @@ namespace Omnimerit_Portal.Admin
             try
             {
                 if (bankDetail.Id == 0)
+                {
+                    bankDetail.Created_By = Session["user"].ToString();
+                    bankDetail.Institution_Code = Session["Institution_Code"].ToString();
+
                     bussiness.Add<Bank_Detail>(bankDetail);
-               // else
-                   // bussiness.Update<Bank_Detail>(bankDetail);
+                } else
+                {
+                    bankDetail.Modified_By = Session["user"].ToString();
+                    bankDetail.Modified_On = DateTime.Now;
+                    bussiness.Update<Bank_Detail>(bankDetail);
+                }
+
                 ModelState.Clear();
                 return View("Bank");
             }

@@ -14,7 +14,21 @@ namespace Omnimerit.Data.Model.Database
     
     public partial class User_Type
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User_Type()
+        {
+            this.Employees = new HashSet<Employee>();
+        }
+    
         public int Id { get; set; }
         public string User_Type1 { get; set; }
+        public string Institution_Code { get; set; }
+        public Nullable<System.DateTime> Created_On { get; set; }
+        public string Created_By { get; set; }
+        public Nullable<System.DateTime> Modified_On { get; set; }
+        public string Modified_By { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

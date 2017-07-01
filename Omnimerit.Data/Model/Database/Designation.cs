@@ -14,7 +14,30 @@ namespace Omnimerit.Data.Model.Database
     
     public partial class Designation
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Designation()
+        {
+            this.Employee_Bank_Detail = new HashSet<Employee_Bank_Detail>();
+            this.Employees = new HashSet<Employee>();
+            this.Leave_Detail = new HashSet<Leave_Detail>();
+            this.Salaries = new HashSet<Salary>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Institution_Code { get; set; }
+        public Nullable<System.DateTime> Created_On { get; set; }
+        public string Created_By { get; set; }
+        public Nullable<System.DateTime> Modified_On { get; set; }
+        public string Modified_By { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee_Bank_Detail> Employee_Bank_Detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee> Employees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Leave_Detail> Leave_Detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Salary> Salaries { get; set; }
     }
 }

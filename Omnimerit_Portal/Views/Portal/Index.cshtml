@@ -24,19 +24,24 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form>
+                    
+@using (Html.BeginForm("Login", "Portal", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+{
+    @Html.AntiForgeryToken()
                         <h1>Login</h1>
+                       
                         <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
+                            <input type="text" class="form-control" placeholder="Username" required name="User_Id"  />
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
+                            <input type="password" class="form-control" placeholder="Password" required name="User_Password"/>
                         </div>
                         <div>
-                            
-                            @Html.ActionLink("Log In","index",new { Controller="Admin/index"}, new { @class = "btn btn-default submit" });
+                            <button type="submit" id="submitbtn" class="btn btn-success">Log In</button>
+                            @*@Html.ActionLink("Log In", "index", new { Controller = "Admin/index" }, new { @class = "btn btn-default submit" })*@
                             <a class="reset_pass" href="#">Forget password?</a>
                         </div>
+                        <span style="color:red;">@ViewBag.Message</span>
                         <div class="clearfix"></div>
                         <div class="separator">
                             <p class="change_link">
@@ -50,7 +55,8 @@
                                 <p>©2017 All Rights Reserved. OmniMerit</p>
                             </div>
                         </div>
-                    </form>
+                    
+}
                 </section>
             </div>
             <div id="register" class="animate form registration_form">

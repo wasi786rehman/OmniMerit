@@ -84,7 +84,7 @@ namespace OmniMerit.Controllers
             if (file != null && file.ContentLength > 0)
                 try
                 {
-                     path = Path.Combine(Server.MapPath("~/Scripts/Images/resume"),
+                     path = Path.Combine(Server.MapPath("~/PluginScripts/Images/resume"),
                                                Path.GetFileName(file.FileName));
                     file.SaveAs(path);
                    

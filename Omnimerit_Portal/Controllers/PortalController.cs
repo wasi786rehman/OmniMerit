@@ -15,29 +15,44 @@ namespace Omnimerit_Portal.Controllers
             return View();
         }
 
-       
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Login(login login)
-        //{
+
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Login login)
+        {
+            
+                Business business = new Business();
+                Login log = business.Login(login);
+                if (log.Id != 0)
+                {
+                   switch(log.User_Type)
+                {
+                    case "Admin": return RedirectToAction("../Admin/Index",log);
+                    case "Employee": return RedirectToAction("../Employee/Index",log);
+                    case "Student": return RedirectToAction("");
+                    default: return RedirectToAction("Invalidcredential");
+
+                }
+                   return RedirectToAction("");
+                }
+                else
+                {
+                   return RedirectToAction("Invalidcredential");
+                }
            
 
-        //    var errors = ModelState.Values.SelectMany(v => v.Errors);
+        }
+        public ActionResult invalidcredential()
+        {
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        Business business = new Business();
-        //        if (business.Login(login))
-        //        {
-        //            TempData["number"] = login.Id;
-        //            return RedirectToAction("../default/profile");
-        //        }
-        //        else
-        //            return RedirectToAction("../Default/invalidcredential");
-        //    }
-
-        //    ViewBag.Message = "Invalid Login Details";
-        //    return RedirectToAction("../Default/invalidcredential");
-        //}
+            ViewBag.Message = "Invalid Login Details";
+            return View("Index");
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            ViewBag.Message = "Successfully Logout";
+            return View("Index");
+        }
 
     }
 }

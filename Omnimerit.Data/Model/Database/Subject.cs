@@ -14,8 +14,37 @@ namespace Omnimerit.Data.Model.Database
     
     public partial class Subject
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Subject()
+        {
+            this.Assign_Subject = new HashSet<Assign_Subject>();
+            this.Assignments = new HashSet<Assignment>();
+            this.Elective_Subject_Allocation = new HashSet<Elective_Subject_Allocation>();
+            this.LessonPlannings = new HashSet<LessonPlanning>();
+            this.Notes = new HashSet<Note>();
+            this.Subject_Allocation = new HashSet<Subject_Allocation>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
+        public string Institution_Code { get; set; }
+        public Nullable<System.DateTime> Created_On { get; set; }
+        public string Created_By { get; set; }
+        public Nullable<System.DateTime> Modified_On { get; set; }
+        public string Modified_By { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Assign_Subject> Assign_Subject { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Assignment> Assignments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Elective_Subject_Allocation> Elective_Subject_Allocation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LessonPlanning> LessonPlannings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Note> Notes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subject_Allocation> Subject_Allocation { get; set; }
     }
 }

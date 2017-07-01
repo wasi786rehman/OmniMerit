@@ -4,16 +4,101 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6a67703b3e7e4388b4c6cf046bab2430" Name="Diagram1">
-        <EntityTypeShape EntityType="OmnimeritModel.Bank_Detail" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OmnimeritModel.Batch" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="OmnimeritModel.Course" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="OmnimeritModel.Department" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OmnimeritModel.Designation" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OmnimeritModel.Employee" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="776717bdad53485488db17f54e41f5ca" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="OmnimeritModel.AccountGroup" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Assign_Subject" Width="1.5" PointX="5.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Assignment" Width="1.5" PointX="8.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Bank_Detail" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Batch" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Book_Category" Width="1.5" PointX="15.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Book_Issue" Width="1.5" PointX="15" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Book_Return" Width="1.5" PointX="15" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Book" Width="1.5" PointX="18" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Certification" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Circular" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Class_Teacher" Width="1.5" PointX="5.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Course" Width="1.5" PointX="0.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Department" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Designation" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Destination" Width="1.5" PointX="13.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Driver" Width="1.5" PointX="11" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Elective_Subject_Allocation" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Employee" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Employee_Bank_Detail" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.FeeCategory" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Hostel" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Hostel_Register" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Hostel_Registration" Width="1.5" PointX="15.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Hostel_Room" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Hostel_Type" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Hostel_Vistor" Width="1.5" PointX="17.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Institutional_Detail" Width="1.5" PointX="17.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Leave_Application" Width="1.5" PointX="6" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Leave_Category" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Leave_Detail" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.LessonPlanning" Width="1.5" PointX="5.25" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Login" Width="1.5" PointX="12.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Note" Width="1.5" PointX="8.25" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Route" Width="1.5" PointX="11" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Salary" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Student" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Student_Category" Width="1.5" PointX="17.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Student_Parent_Detail" Width="1.5" PointX="10.5" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Student_Personal_Detail" Width="1.5" PointX="10.5" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Student_Prequalification_Detail" Width="1.5" PointX="10.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Subject" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Subject_Allocation" Width="1.5" PointX="11.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Transport_Allocation" Width="1.5" PointX="13.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.Transport_Detail" Width="1.5" PointX="8.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.TransportAllocationDetail" Width="1.5" PointX="17.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OmnimeritModel.User_Type" Width="1.5" PointX="3.75" PointY="20.125" IsExpanded="true" />
+        <AssociationConnector Association="OmnimeritModel.FK__Assign_Su__Batch__2AD55B43" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Assign_Su__Cours__29E1370A" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Assign_Su__Stude__2CBDA3B5" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Assign_Su__Subje__2BC97F7C" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Assignmen__Batch__467D75B8" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Assignmen__Cours__4589517F" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Assignmen__Subje__477199F1" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Employee___Bank___093F5D4E" ManuallyRouted="false" />
         <AssociationConnector Association="OmnimeritModel.FK__Batch__Course__503BEA1C" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="OmnimeritModel.Subject" Width="1.5" PointX="5" PointY="1" />
-        <EntityTypeShape EntityType="OmnimeritModel.User_Type" Width="1.5" PointX="8.625" PointY="3.75" />
+        <AssociationConnector Association="OmnimeritModel.FK__Class_Tea__Batch__15DA3E5D" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Elective___Batch__40C49C62" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Note__Batch__4B422AD5" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Student__Batch__2704CA5F" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Subject_A__Batch__1B9317B3" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Books__Book_Cate__7FB5F314" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Book_Issu__UserI__5B78929E" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Book_Retu__UserI__5E54FF49" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Class_Tea__Cours__14E61A24" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Elective___Cours__3FD07829" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Note__Course__4A4E069C" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Student__Course__2610A626" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Subject_A__Cours__1A9EF37A" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Employee__Depart__02925FBF" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Subject_A__Depar__18B6AB08" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Employee___Desig__075714DC" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Employee__Design__038683F8" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Leave_Det__Desig__3A179ED3" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Salary__Designat__318258D2" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Destinati__Route__79FD19BE" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Driver__Vehicle___7167D3BD" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Elective___Stude__42ACE4D4" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Elective___Subje__41B8C09B" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Employee___Emplo__084B3915" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Employee__User_T__047AA831" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Salary__Employee__32767D0B" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Student__Employe__251C81ED" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Subject_A__Emplo__19AACF41" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Leave_App__Leave__3CF40B7E" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Leave_Det__Leave__39237A9A" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__LessonPla__Subje__019E3B86" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Note__Subject__4C364F0E" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Route__Vehicle_N__74444068" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Transport__Route__7CD98669" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Student_P__Stude__4F12BBB9" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Student_P__Stude__51EF2864" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Student_P__Stude__54CB950F" ManuallyRouted="false" />
+        <AssociationConnector Association="OmnimeritModel.FK__Subject_A__Subje__1C873BEC" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,6 +14,15 @@ namespace Omnimerit.Data.Model.Database
     
     public partial class Employee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            this.Employee_Bank_Detail = new HashSet<Employee_Bank_Detail>();
+            this.Salaries = new HashSet<Salary>();
+            this.Students = new HashSet<Student>();
+            this.Subject_Allocation = new HashSet<Subject_Allocation>();
+        }
+    
         public int Id { get; set; }
         public string Employee_Name { get; set; }
         public string Employee_Code { get; set; }
@@ -34,8 +43,20 @@ namespace Omnimerit.Data.Model.Database
         public string Phone { get; set; }
         public Nullable<int> Mobile { get; set; }
         public string Email { get; set; }
-        public string User_Type { get; set; }
-        public string Department { get; set; }
-        public string Designation { get; set; }
+        public int Department { get; set; }
+        public int Designation { get; set; }
+        public int User_Type { get; set; }
+    
+        public virtual Department Department1 { get; set; }
+        public virtual Designation Designation1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee_Bank_Detail> Employee_Bank_Detail { get; set; }
+        public virtual User_Type User_Type1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Salary> Salaries { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student> Students { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subject_Allocation> Subject_Allocation { get; set; }
     }
 }
